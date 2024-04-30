@@ -5,228 +5,646 @@
       "category": "modalities",
       "name": "xray",
       "statements": [
-        "100 - employs a technique to visualize bone structures",
-        "101 - captured its first image of a hand",
-        "102 - was discovered by Wilhelm Conrad Roentgen",
-        "103 - is often the first test done for injuries involving fractures",
-        "104 - used in dental assessments to detect cavities and root problems"
-      ]
+        {
+          "code": "100",
+          "text": "employs a technique to visualize bone structures",
+          "secretLetters": "vb"
+        },
+        {
+          "code": "101",
+          "text": "captured its first image of a hand",
+          "secretLetters": "ch"
+        },
+        {
+          "code": "102",
+          "text": "was discovered by Wilhelm Conrad Roentgen",
+          "secretLetters": "wr"
+        },
+        {
+          "code": "103",
+          "text": "is often the first test done for injuries involving fractures",
+          "secretLetters": "if"
+        },
+        {
+          "code": "104",
+          "text": "used in dental assessments to detect cavities and root problems",
+          "secretLetters": "ds"
+        }
+      ],
+      "secret": "view hard",
+      "secretDescription": "captures the essence of what X-rays do best—providing clear images of the body's hardest parts, crucial for diagnosing fractures, dental issues, and other skeletal problems. The phrase reflects the literal and figurative strength of X-ray technology in penetrating hard tissues to reveal hidden truths beneath the skin."
     },
     {
       "id": 11,
       "category": "modalities",
       "name": "ultrasound",
       "statements": [
-        "105 - uses high-frequency sound waves to produce images of the body",
-        "106 - is used to monitor fetal development",
-        "107 - safe for imaging soft tissues compared to other imaging modalities",
-        "108 - does not use ionizing radiation",
-        "109 - ideal for real-time imaging results"
-      ]
+        {
+          "code": "105",
+          "text": "uses high-frequency sound waves to produce images of the body",
+          "secretLetters": "suo"
+        },
+        {
+          "code": "106",
+          "text": "is used to monitor fetal development",
+          "secretLetters": "fd"
+        },
+        {
+          "code": "107",
+          "text": "safe for imaging soft tissues compared to other imaging modalities",
+          "secretLetters": "mg"
+        },
+        {
+          "code": "108",
+          "text": "does not use ionizing radiation",
+          "secretLetters": "ir"
+        },
+        {
+          "code": "109",
+          "text": "ideal for real-time imaging results",
+          "secretLetters": "tl"
+        }
+      ],
+      "secret": "ultra forms",
+      "secretDescription": "Encapsulates how ultrasound is used to visualize and understand the intricate forms inside the human body. Whether it's monitoring fetal development, diagnosing conditions in soft tissues, or guiding minimally invasive procedures, ultrasound provides a critical window into the body's internal forms in motion."
     },
     {
       "id": 12,
       "category": "modalities",
       "name": "mri",
       "statements": [
-        "110 - uses a magnetic field and radio waves to produce images of the body",
-        "111 - provides high-resolution images of soft tissues",
-        "112 - useful for diagnosing brain disorders",
-        "113 - is not recommended for patients with metal implants",
-        "114 - ideal for imaging joint structures and soft tissue injuries"
-      ]
+        {
+          "code": "110",
+          "text": "uses a magnetic field and radio waves to produce images of the body",
+          "secretLetters": "mra"
+        },
+        {
+          "code": "111",
+          "text": "provides high-resolution images of soft tissues",
+          "secretLetters": "hs"
+        },
+        {
+          "code": "112",
+          "text": "useful for diagnosing brain disorders",
+          "secretLetters": "bd"
+        },
+        {
+          "code": "113",
+          "text": "is not recommended for patients with metal implants",
+          "secretLetters": "pt"
+        },
+        {
+          "code": "114",
+          "text": "ideal for imaging joint structures and soft tissue injuries",
+          "secretLetters": "jn"
+        }
+      ],
+      "secret": "brain jumps",
+      "secretDescription": "Describes how MRI technology is leveraged to explore and understand the complexities of the human brain, capturing its dynamic nature and the quick 'jumps' in brain activity related to different cognitive processes and disorders."
     },
     {
       "id": 13,
       "category": "modalities",
       "name": "ct",
       "statements": [
-        "115 - uses a technique to produce cross-sectional images of the body",
-        "116 - provides detailed images of bones and soft tissues",
-        "117 - involves a rotating x-ray machine with speeds up to 0.28 seconds per rotation",
-        "118 - is often used in emergency situations for quick diagnosis",
-        "119 - can be used to guide biopsies and other procedures"
-      ]
+        {
+          "code": "115",
+          "text": "uses a technique to produce cross-sectional images of the body",
+          "secretLetters": "cs"
+        },
+        {
+          "code": "116",
+          "text": "provides detailed images of bones and soft tissues",
+          "secretLetters": "db"
+        },
+        {
+          "code": "117",
+          "text": "involves a rotating x-ray machine with speeds up to 0.28 seconds per rotation",
+          "secretLetters": "rx"
+        },
+        {
+          "code": "118",
+          "text": "is often used in emergency situations for quick diagnosis",
+          "secretLetters": "eq"
+        },
+        {
+          "code": "119",
+          "text": "can be used to guide biopsies and other procedures",
+          "secretLetters": "gp"
+        }
+      ],
+      "secret": "precise dx",
+      "secretDescription": "highlights the accuracy and reliability of CT scans in providing detailed cross-sectional views of the body, which are crucial for accurate diagnosis (DX) and subsequent treatments, including guiding intricate procedures like biopsies."
     },
     {
       "id": 20,
       "category": "diseases",
       "name": "diabetes",
       "statements": [
-        "120 - is a chronic condition that affects glucose metabolism",
-        "121 - Type 1 diabetes is characterized by the absence of insulin production",
-        "122 - Type 2 diabetes often results from body's resistance to insulin",
-        "123 - can lead to serious complications like heart disease, kidney damage, and vision loss",
-        "124 - is manageable with diet, exercise, and medication"
-      ]
+        {
+          "code": "120",
+          "text": "is a chronic condition that affects glucose metabolism",
+          "secretLetters": "mg"
+        },
+        {
+          "code": "121",
+          "text": "Type 1 diabetes is characterized by the absence of insulin production",
+          "secretLetters": "tp"
+        },
+        {
+          "code": "122",
+          "text": "Type 2 diabetes often results from body's resistance to insulin",
+          "secretLetters": "bi"
+        },
+        {
+          "code": "123",
+          "text": "can lead to serious complications like heart disease, kidney damage, and vision loss",
+          "secretLetters": "cv"
+        },
+        {
+          "code": "124",
+          "text": "is manageable with diet, exercise, and medication",
+          "secretLetters": "dr"
+        }
+      ],
+      "secret": "impact grid",
+      "secretDescription": "represents the systematic and widespread effects of diabetes across a grid-like spectrum of bodily functions. The term grid underscores the organized yet complex pattern of influence that diabetes has, affecting everything from vision to heart health, and necessitates a comprehensive understanding of its impact."
     },
     {
       "id": 21,
       "category": "diseases",
       "name": "alzheimer",
       "statements": [
-        "125 - is a progressive brain disorder that slowly destroys memory and thinking skills",
-        "126 - is the most common cause of dementia among older adults",
-        "127 - has no current cure, but treatments for symptoms are available",
-        "128 - risk factors include age, genetics, and certain lifestyle factors",
-        "129 - early symptoms are often mistaken for normal aging"
-      ]
+        {
+          "code": "125",
+          "text": "is a progressive brain disorder that slowly destroys memory and thinking skills",
+          "secretLetters": "md"
+        },
+        {
+          "code": "126",
+          "text": "is the most common cause of dementia among older adults",
+          "secretLetters": "do"
+        },
+        {
+          "code": "127",
+          "text": "has no current cure, but treatments for symptoms are available",
+          "secretLetters": "ct"
+        },
+        {
+          "code": "128",
+          "text": "risk factors include age, genetics, and certain lifestyle factors",
+          "secretLetters": "gl"
+        },
+        {
+          "code": "129",
+          "text": "early symptoms are often mistaken for normal aging",
+          "secretLetters": "es"
+        }
+      ],
+      "secret": "lost mind",
+      "secretDescription": "describes the tragic essence of the gradual loss of one's mental faculties and the identity crisis that ensues. It reflects the progressive nature of the disease where patients experience a slow erosion of their mental capabilities."
     },
     {
       "id": 22,
       "category": "diseases",
       "name": "coronary artery disease",
       "statements": [
-        "130 - is the most common type of heart disease",
-        "131 - occurs when the organ supplying blood to the heart become hardened and narrowed",
-        "132 - can lead to chest pain, heart attack, or stroke",
-        "133 - risk factors include smoking, high cholesterol, and high blood pressure",
-        "134 - treatment often involves lifestyle changes, medications, and sometimes surgical procedures"
-      ]
+        {
+          "code": "130",
+          "text": "is the most common type of heart disease",
+          "secretLetters": "ch"
+        },
+        {
+          "code": "131",
+          "text": "occurs when the organ supplying blood to the heart become hardened and narrowed",
+          "secretLetters": "ad"
+        },
+        {
+          "code": "132",
+          "text": "can lead to chest pain, heart attack, or stroke",
+          "secretLetters": "st"
+        },
+        {
+          "code": "133",
+          "text": "risk factors include smoking, high cholesterol, and high blood pressure",
+          "secretLetters": "pr"
+        },
+        {
+          "code": "134",
+          "text": "treatment often involves lifestyle changes, medications, and sometimes surgical procedures",
+          "secretLetters": "ol"
+        }
+      ],
+      "secret": "stop hard",
+      "secretDescription": "captures the urgency and gravity of coronary artery disease, emphasizing the need to 'stop' the hardening and narrowing of arteries that can lead to life-threatening conditions like heart attacks and strokes. The phrase underscores the critical importance of early intervention and treatment."
     },
     {
       "id": 23,
       "category": "diseases",
       "name": "asthma",
       "statements": [
-        "135 - is a chronic condition that inflames and narrows the airways",
-        "136 - symptoms include wheezing, shortness of breath, chest tightness, and coughing",
-        "137 - triggers can include pollen, dust mites, smoke, and cold air",
-        "138 - management involves avoiding triggers and using prescribed inhalers",
-        "139 - can vary in intensity and may require emergency treatment"
-      ]
+        {
+          "code": "135",
+          "text": "is a chronic condition that inflames and narrows the airways",
+          "secretLetters": "ca"
+        },
+        {
+          "code": "136",
+          "text": "symptoms include wheezing, shortness of breath, chest tightness, and coughing",
+          "secretLetters": "wb"
+        },
+        {
+          "code": "137",
+          "text": "triggers can include pollen, dust mites, smoke, and cold air",
+          "secretLetters": "ps"
+        },
+        {
+          "code": "138",
+          "text": "management involves avoiding triggers and using prescribed inhalers",
+          "secretLetters": "i"
+        },
+        {
+          "code": "139",
+          "text": "can vary in intensity and may require emergency treatment",
+          "secretLetters": "et"
+        }
+      ],
+      "secret": "sweep air",
+      "secretDescription": "illustrates the need for clear air passages and the action of inhalers, which help 'sweep' through the constrictions to ease breathing."
     },
     {
       "id": 24,
       "category": "diseases",
       "name": "breast cancer",
       "statements": [
-        "140 - is a type of cancer that forms in the cells of the breast",
-        "141 - is the most common type of cancer overall with an estimated 310,720 women and 2,790 men will be diagnosed with breast cancer in 2024",
-        "142 - genetic factors like BRCA1 and BRCA2 mutations increase risk",
-        "143 - mammograms are used for early detection",
-        "144 - a lumpectomy or mastectomy may be recommended for treatment"
-      ]
+        {
+          "code": "140",
+          "text": "is a type of cancer that forms in the cells of the breast",
+          "secretLetters": "b"
+        },
+        {
+          "code": "141",
+          "text": "is the most common type of cancer overall with an estimated 310,720 women and 2,790 men will be diagnosed with breast cancer in 2024",
+          "secretLetters": "rm"
+        },
+        {
+          "code": "142",
+          "text": "genetic factors like BRCA1 and BRCA2 mutations increase risk",
+          "secretLetters": "g"
+        },
+        {
+          "code": "143",
+          "text": "mammograms are used for early detection",
+          "secretLetters": "d"
+        },
+        {
+          "code": "144",
+          "text": "a lumpectomy or mastectomy may be recommended for treatment",
+          "secretLetters": "l"
+        }
+      ],
+      "secret": "brave mold",
+      "secretDescription": "the courage patients show and the transformative journey they undergo, both physically and emotionally. The term 'mold' represents the reshaping and remolding of one's life and body after a breast cancer diagnosis, embodying the strength and resilience needed to face the challenges ahead."
     },
     {
       "id": 30,
       "category": "communication terminologies",
       "name": "HIPAA",
       "statements": [
-        "150 - stands for Health Insurance Portability and Accountability Act",
-        "151 - protects the privacy of patient health information",
-        "152 - requires healthcare providers to secure patient records",
-        "153 - includes provisions to prevent healthcare fraud",
-        "154 - patients can request copies of their health records under this act"
-      ]
+        {
+          "code": "150",
+          "text": "stands for Health Insurance Portability and Accountability Act",
+          "secretLetters": "py"
+        },
+        {
+          "code": "151",
+          "text": "protects the privacy of patient health information",
+          "secretLetters": "r"
+        },
+        {
+          "code": "152",
+          "text": "requires healthcare providers to secure patient records",
+          "secretLetters": "i"
+        },
+        {
+          "code": "153",
+          "text": "includes provisions to prevent healthcare fraud",
+          "secretLetters": "va"
+        },
+        {
+          "code": "154",
+          "text": "patients can request copies of their health records under this act",
+          "secretLetters": "c"
+        }
+      ],
+      "secret": "privacy",
+      "secretDescription": " directly aligns with HIPAA's primary focus — the protection and privacy of patient health information."
     },
     {
       "id": 31,
       "category": "communication terminologies",
       "name": "informed consent",
       "statements": [
-        "155 - a legal process to ensure patients are aware of all treatment risks",
-        "156 - requires clear explanation of the procedures and risks involved before treatment",
-        "157 - patients must voluntarily agree to treatment after receiving all relevant information",
-        "158 - can be withdrawn by the patient at any time",
-        "159 - essential for ethical medical practices"
-      ]
+        {
+          "code": "155",
+          "text": "a legal process to ensure patients are aware of all treatment risks",
+          "secretLetters": "a"
+        },
+        {
+          "code": "156",
+          "text": "requires clear explanation of the procedures and risks involved before treatment",
+          "secretLetters": "r"
+        },
+        {
+          "code": "157",
+          "text": "patients must voluntarily agree to treatment after receiving all relevant information",
+          "secretLetters": "lt"
+        },
+        {
+          "code": "158",
+          "text": "can be withdrawn by the patient at any time",
+          "secretLetters": "cy"
+        },
+        {
+          "code": "159",
+          "text": "essential for ethical medical practices",
+          "secretLetters": "i"
+        }
+      ],
+      "secret": "clarity",
+      "secretDescription": "highlights the importance of clear communication and transparency in the informed consent process, ensuring patients have a full understanding of their treatment options and potential risks."
     },
     {
       "id": 32,
       "category": "communication terminologies",
       "name": "EMR",
       "statements": [
-        "160 - stands for Electronic Medical Record",
-        "161 - digitally records patient’s medical history",
-        "162 - used primarily within one healthcare practice",
-        "163 - can be shared electronically with other healthcare providers with proper consent",
-        "164 - enhances efficiency of patient care management"
-      ]
+        {
+          "code": "160",
+          "text": "stands for Electronic Medical Record",
+          "secretLetters": "nd"
+        },
+        {
+          "code": "161",
+          "text": "digitally records patient’s medical history",
+          "secretLetters": "se"
+        },
+        {
+          "code": "162",
+          "text": "used primarily within one healthcare practice",
+          "secretLetters": "mc"
+        },
+        {
+          "code": "163",
+          "text": "can be shared electronically with other healthcare providers with proper consent",
+          "secretLetters": "ap"
+        },
+        {
+          "code": "164",
+          "text": "enhances efficiency of patient care management",
+          "secretLetters": "i"
+        }
+      ],
+      "secret": "mindscape",
+      "secretDescription": "reflects the vast landscape of patient information stored in EMRs, detailing a patient's medical history, treatments, and care plans. The term 'mindscape' symbolizes the digital realm where healthcare providers navigate to access and manage patient data."
     },
     {
       "id": 33,
       "category": "communication terminologies",
       "name": "telemedicine",
       "statements": [
-        "165 - the remote diagnosis and treatment of patients via telecommunications technology",
-        "166 - helps reach patients in remote areas",
-        "167 - includes consultations via video calls",
-        "168 - can offer follow-up visits, and remote chronic disease management",
-        "169 - requires secure internet connections to protect patient privacy"
-      ]
+        {
+          "code": "165",
+          "text": "the remote diagnosis and treatment of patients via telecommunications technology",
+          "secretLetters": "vl"
+        },
+        {
+          "code": "166",
+          "text": "helps reach patients in remote areas",
+          "secretLetters": "a"
+        },
+        {
+          "code": "167",
+          "text": "includes consultations via video calls",
+          "secretLetters": "u"
+        },
+        {
+          "code": "168",
+          "text": "can offer follow-up visits, and remote chronic disease management",
+          "secretLetters": "i"
+        },
+        {
+          "code": "169",
+          "text": "requires secure internet connections to protect patient privacy",
+          "secretLetters": "rt"
+        }
+      ],
+      "secret": "virtual",
+      "secretDescription": "describes the virtual bridge connecting patients and healthcare providers, transcending geographical barriers to deliver care remotely."
     },
     {
       "id": 34,
       "category": "communication terminologies",
       "name": "patient-centered care",
       "statements": [
-        "170 - focuses on the patient’s specific health needs and desired outcomes",
-        "171 - involves the patient in all healthcare decisions",
-        "172 - recognizes the patient’s preferences, values, and family situations",
-        "173 - encourages active collaboration among healthcare teams to meet patient needs",
-        "174 - associated with improved patient satisfaction and outcomes"
-      ]
+        {
+          "code": "170",
+          "text": "focuses on the patient’s specific health needs and desired outcomes",
+          "secretLetters": "a"
+        },
+        {
+          "code": "171",
+          "text": "involves the patient in all healthcare decisions",
+          "secretLetters": "ce"
+        },
+        {
+          "code": "172",
+          "text": "recognizes the patient’s preferences, values, and family situations",
+          "secretLetters": "f"
+        },
+        {
+          "code": "173",
+          "text": "encourages active collaboration among healthcare teams to meet patient needs",
+          "secretLetters": "r"
+        },
+        {
+          "code": "174",
+          "text": "associated with improved patient satisfaction and outcomes",
+          "secretLetters": "td"
+        }
+      ],
+      "secret": "crafted",
+      "secretDescription": "reflects the personalized and tailored approach of patient-centered care, where healthcare plans are meticulously 'crafted' to meet the unique needs and preferences of each patient."
     },
     {
       "id": 40,
       "category": "web3 benefits",
       "name": "enhanced data security",
       "statements": [
-        "175 - utilizes blockchain technology to ensure data is immutable and tamper-proof",
-        "176 - encrypts patient data to prevent unauthorized access",
-        "177 - allows secure sharing of medical records between authorized parties",
-        "178 - reduces the risk of data breaches compared to traditional data storage systems",
-        "179 - supports compliance with data protection regulations"
-      ]
+        {
+          "code": "175",
+          "text": "utilizes blockchain technology to ensure data is immutable and tamper-proof",
+          "secretLetters": "cd"
+        },
+        {
+          "code": "176",
+          "text": "encrypts patient data to prevent unauthorized access",
+          "secretLetters": "se"
+        },
+        {
+          "code": "177",
+          "text": "allows secure sharing of medical records between authorized parties",
+          "secretLetters": "i"
+        },
+        {
+          "code": "178",
+          "text": "reduces the risk of data breaches compared to traditional data storage systems",
+          "secretLetters": "rt"
+        },
+        {
+          "code": "179",
+          "text": "supports compliance with data protection regulations",
+          "secretLetters": "p"
+        }
+      ],
+      "secret": "scripted",
+      "secretDescription": "highlights the structured and secure nature of blockchain technology in safeguarding patient data, ensuring that it is protected, encrypted, and accessible only to authorized parties."
     },
     {
       "id": 41,
       "category": "web3 benefits",
       "name": "improved patient control over health data",
       "statements": [
-        "180 - enables patients to own and control their medical records",
-        "181 - patients can grant or revoke access to their health data at any time",
-        "182 - facilitates patient consent management through smart contracts",
-        "183 - empowers patients by giving them visibility into who accesses their information",
-        "184 - promotes patient privacy and autonomy"
-      ]
+        {
+          "code": "180",
+          "text": "enables patients to own and control their medical records",
+          "secretLetters": "ei"
+        },
+        {
+          "code": "181",
+          "text": "patients can grant or revoke access to their health data at any time",
+          "secretLetters": "nh"
+        },
+        {
+          "code": "182",
+          "text": "facilitates patient consent management through smart contracts",
+          "secretLetters": "rp"
+        },
+        {
+          "code": "183",
+          "text": "empowers patients by giving them visibility into who accesses their information",
+          "secretLetters": "ow"
+        },
+        {
+          "code": "184",
+          "text": "promotes patient privacy and autonomy",
+          "secretLetters": "s"
+        }
+      ],
+      "secret": "ownership",
+      "secretDescription": "emphasizes the shift in control and ownership of health data from healthcare providers to patients, empowering individuals to manage and protect their personal health information."
     },
     {
       "id": 42,
       "category": "web3 benefits",
       "name": "streamlined clinical trials",
       "statements": [
-        "185 - blockchain can securely manage consent forms and trial data",
-        "186 - facilitates real-time data collection and sharing among trial participants",
-        "187 - enhances the reliability and validity of trial results",
-        "188 - allows for more efficient recruitment and retention of trial participants",
-        "189 - reduces administrative costs and errors associated with clinical trials"
-      ]
+        {
+          "code": "185",
+          "text": "blockchain can securely manage consent forms and trial data",
+          "secretLetters": "i"
+        },
+        {
+          "code": "186",
+          "text": "facilitates real-time data collection and sharing among trial participants",
+          "secretLetters": "oe"
+        },
+        {
+          "code": "187",
+          "text": "enhances the reliability and validity of trial results",
+          "secretLetters": "dv"
+        },
+        {
+          "code": "188",
+          "text": "allows for more efficient recruitment and retention of trial participants",
+          "secretLetters": "s"
+        },
+        {
+          "code": "189",
+          "text": "reduces administrative costs and errors associated with clinical trials",
+          "secretLetters": "cr"
+        }
+      ],
+      "secret": "discover",
+      "secretDescription": "describes how blockchain can provide new insights and breakthroughs in clinical research, enabling more efficient and reliable clinical trials that drive medical discoveries."
     },
     {
       "id": 43,
       "category": "web3 benefits",
       "name": "faster and more efficient billing",
       "statements": [
-        "190 - smart contracts can automate billing processes, reducing delays",
-        "191 - ensures transparency and accuracy transactions",
-        "192 - reduces fraud and disputes in billing",
-        "193 - decreases administrative costs associated with manual billing systems",
-        "194 - enhances patient satisfaction with quicker billing resolution"
-      ]
+        {
+          "code": "190",
+          "text": "smart contracts can automate billing processes, reducing delays",
+          "secretLetters": "b"
+        },
+        {
+          "code": "191",
+          "text": "ensures transparency and accuracy transactions",
+          "secretLetters": "r"
+        },
+        {
+          "code": "192",
+          "text": "reduces fraud and disputes in billing",
+          "secretLetters": "u"
+        },
+        {
+          "code": "193",
+          "text": "decreases administrative costs associated with manual billing systems",
+          "secretLetters": "os"
+        },
+        {
+          "code": "194",
+          "text": "enhances patient satisfaction with quicker billing resolution",
+          "secretLetters": "t"
+        }
+      ],
+      "secret": "robust",
+      "secretDescription": "describes the strength and efficiency of blockchain-based billing systems, which are robust, secure, and capable of handling complex transactions with speed and accuracy."
     },
     {
       "id": 44,
       "category": "web3 benefits",
       "name": "global health data interoperability",
       "statements": [
-        "195 - facilitates seamless exchange of health information across borders",
-        "196 - supports global health monitoring and response efforts",
-        "197 - enhances collaborative research and healthcare delivery",
-        "198 - overcomes traditional barriers of data silos and incompatible systems",
-        "199 - promotes a unified standard for health data that aids in worldwide healthcare improvement"
-      ]
+        {
+          "code": "195",
+          "text": "facilitates seamless exchange of health information across borders",
+          "secretLetters": "ia"
+        },
+        {
+          "code": "196",
+          "text": "supports global health monitoring and response efforts",
+          "secretLetters": "el"
+        },
+        {
+          "code": "197",
+          "text": "enhances collaborative research and healthcare delivery",
+          "secretLetters": "ty"
+        },
+        {
+          "code": "198",
+          "text": "overcomes traditional barriers of data silos and incompatible systems",
+          "secretLetters": "np"
+        },
+        {
+          "code": "199",
+          "text": "promotes a unified standard for health data that aids in worldwide healthcare improvement",
+          "secretLetters": "r"
+        }
+      ],
+      "secret": "interplay",
+      "secretDescription": "describes the dynamic and interconnected nature of global health data exchange, emphasizing the importance of information across diverse healthcare systems and regions."
     }
   ]
 }
