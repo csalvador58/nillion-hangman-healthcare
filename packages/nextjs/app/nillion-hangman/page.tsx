@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import GameUI from "~~/components/hangman/gameui";
-import SelectCategory from "~~/components/hangman/selectCategory";
+import GameUI from "~~/components/hangman/GameUI";
 import CodeSnippet from "~~/components/nillion/CodeSnippet";
 import { CopyString } from "~~/components/nillion/CopyString";
 import { NillionOnboarding } from "~~/components/nillion/NillionOnboarding";
