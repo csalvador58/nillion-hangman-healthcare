@@ -32,7 +32,7 @@
         }
       ],
       "secret": "view hard",
-      "secretDescription": "captures the essence of what X-rays do best—providing clear images of the body's hardest parts, crucial for diagnosing fractures, dental issues, and other skeletal problems. The phrase reflects the literal and figurative strength of X-ray technology in penetrating hard tissues to reveal hidden truths beneath the skin."
+      "secretDescription": "captures the essence of what X-rays do best—providing clear images of the body's hardest parts, crucial for diagnosing fractures, dental issues, and other skeletal problems. The phrase reflects the literal and figurative strength of X-ray technology in penetrating hard tissues to reveal hidden truths beneath the skin"
     },
     {
       "id": 11,
@@ -66,7 +66,7 @@
         }
       ],
       "secret": "ultra forms",
-      "secretDescription": "Encapsulates how ultrasound is used to visualize and understand the intricate forms inside the human body. Whether it's monitoring fetal development, diagnosing conditions in soft tissues, or guiding minimally invasive procedures, ultrasound provides a critical window into the body's internal forms in motion."
+      "secretDescription": "Encapsulates how ultrasound is used to visualize and understand the intricate forms inside the human body. Whether it's monitoring fetal development, diagnosing conditions in soft tissues, or guiding minimally invasive procedures, ultrasound provides a critical window into the body's internal forms in motion"
     },
     {
       "id": 12,
@@ -100,7 +100,7 @@
         }
       ],
       "secret": "brain jumps",
-      "secretDescription": "Describes how MRI technology is leveraged to explore and understand the complexities of the human brain, capturing its dynamic nature and the quick 'jumps' in brain activity related to different cognitive processes and disorders."
+      "secretDescription": "Describes how MRI technology is leveraged to explore and understand the complexities of the human brain, capturing its dynamic nature and the quick 'jumps' in brain activity related to different cognitive processes and disorders"
     },
     {
       "id": 13,
@@ -134,7 +134,7 @@
         }
       ],
       "secret": "precise dx",
-      "secretDescription": "highlights the accuracy and reliability of CT scans in providing detailed cross-sectional views of the body, which are crucial for accurate diagnosis (DX) and subsequent treatments, including guiding intricate procedures like biopsies."
+      "secretDescription": "highlights the accuracy and reliability of CT scans in providing detailed cross-sectional views of the body, which are crucial for accurate diagnosis (DX) and subsequent treatments, including guiding intricate procedures like biopsies"
     },
     {
       "id": 20,
@@ -168,7 +168,7 @@
         }
       ],
       "secret": "impact grid",
-      "secretDescription": "represents the systematic and widespread effects of diabetes across a grid-like spectrum of bodily functions. The term grid underscores the organized yet complex pattern of influence that diabetes has, affecting everything from vision to heart health, and necessitates a comprehensive understanding of its impact."
+      "secretDescription": "represents the systematic and widespread effects of diabetes across a grid-like spectrum of bodily functions. The term grid underscores the organized yet complex pattern of influence that diabetes has, affecting everything from vision to heart health, and necessitates a comprehensive understanding of its impact"
     },
     {
       "id": 21,
@@ -202,7 +202,7 @@
         }
       ],
       "secret": "lost mind",
-      "secretDescription": "describes the tragic essence of the gradual loss of one's mental faculties and the identity crisis that ensues. It reflects the progressive nature of the disease where patients experience a slow erosion of their mental capabilities."
+      "secretDescription": "describes the tragic essence of the gradual loss of one's mental faculties and the identity crisis that ensues. It reflects the progressive nature of the disease where patients experience a slow erosion of their mental capabilities"
     },
     {
       "id": 22,
@@ -236,7 +236,7 @@
         }
       ],
       "secret": "stop hard",
-      "secretDescription": "captures the urgency and gravity of coronary artery disease, emphasizing the need to 'stop' the hardening and narrowing of arteries that can lead to life-threatening conditions like heart attacks and strokes. The phrase underscores the critical importance of early intervention and treatment."
+      "secretDescription": "captures the urgency and gravity of coronary artery disease, emphasizing the need to 'stop' the hardening and narrowing of arteries that can lead to life-threatening conditions like heart attacks and strokes. The phrase underscores the critical importance of early intervention and treatment"
     },
     {
       "id": 23,
@@ -270,7 +270,7 @@
         }
       ],
       "secret": "sweep air",
-      "secretDescription": "illustrates the need for clear air passages and the action of inhalers, which help 'sweep' through the constrictions to ease breathing."
+      "secretDescription": "illustrates the need for clear air passages and the action of inhalers, which help 'sweep' through the constrictions to ease breathing"
     },
     {
       "id": 24,
@@ -304,11 +304,11 @@
         }
       ],
       "secret": "brave mold",
-      "secretDescription": "the courage patients show and the transformative journey they undergo, both physically and emotionally. The term 'mold' represents the reshaping and remolding of one's life and body after a breast cancer diagnosis, embodying the strength and resilience needed to face the challenges ahead."
+      "secretDescription": "the courage patients show and the transformative journey they undergo, both physically and emotionally. The term 'mold' represents the reshaping and remolding of one's life and body after a breast cancer diagnosis, embodying the strength and resilience needed to face the challenges ahead"
     },
     {
       "id": 30,
-      "category": "communication terminologies",
+      "category": "terminologies",
       "name": "HIPAA",
       "statements": [
         {
@@ -338,45 +338,45 @@
         }
       ],
       "secret": "privacy",
-      "secretDescription": " directly aligns with HIPAA's primary focus — the protection and privacy of patient health information."
+      "secretDescription": " directly aligns with HIPAA's primary focus — the protection and privacy of patient health information"
     },
     {
       "id": 31,
-      "category": "communication terminologies",
-      "name": "informed consent",
+      "category": "terminologies",
+      "name": "DICOM",
       "statements": [
         {
           "code": "155",
-          "text": "a legal process to ensure patients are aware of all treatment risks",
-          "secretLetters": "a"
+          "text": "is a standard used for storing, transmitting, and managing medical imaging information and related data",
+          "secretLetters": "n"
         },
         {
           "code": "156",
-          "text": "requires clear explanation of the procedures and risks involved before treatment",
-          "secretLetters": "r"
+          "text": "enables the integration of medical imaging devices such as scanners, servers, workstations, and network hardware from multiple manufacturers",
+          "secretLetters": "u"
         },
         {
           "code": "157",
-          "text": "patients must voluntarily agree to treatment after receiving all relevant information",
-          "secretLetters": "lt"
+          "text": "facilitates the exchange of information between healthcare systems to ensure universal access and compatibility",
+          "secretLetters": "y"
         },
         {
           "code": "158",
-          "text": "can be withdrawn by the patient at any time",
-          "secretLetters": "cy"
+          "text": "supports a wide range of imaging applications, including radiology, cardiology, and other image-intensive fields",
+          "secretLetters": "i"
         },
         {
           "code": "159",
-          "text": "essential for ethical medical practices",
-          "secretLetters": "i"
+          "text": "allows for enhanced diagnostic capabilities by providing rich metadata and a standardized imaging format that improves image analysis",
+          "secretLetters": "f"
         }
       ],
-      "secret": "clarity",
-      "secretDescription": "highlights the importance of clear communication and transparency in the informed consent process, ensuring patients have a full understanding of their treatment options and potential risks."
-    },
+      "secret": "unify",
+      "secretDescription": "reflects the role of DICOM to ensure medical imaging technologies and data across diverse systems, enabling seamless communication and interoperability between healthcare providers and facilities"
+    },    
     {
       "id": 32,
-      "category": "communication terminologies",
+      "category": "terminologies",
       "name": "EMR",
       "statements": [
         {
@@ -406,79 +406,79 @@
         }
       ],
       "secret": "mindscape",
-      "secretDescription": "reflects the vast landscape of patient information stored in EMRs, detailing a patient's medical history, treatments, and care plans. The term 'mindscape' symbolizes the digital realm where healthcare providers navigate to access and manage patient data."
+      "secretDescription": "reflects the vast landscape of patient information stored in EMRs, detailing a patient's medical history, treatments, and care plans. The term 'mindscape' symbolizes the digital realm where healthcare providers navigate to access and manage patient data"
     },
     {
       "id": 33,
-      "category": "communication terminologies",
-      "name": "telemedicine",
+      "category": "terminologies",
+      "name": "GDPR",
       "statements": [
         {
           "code": "165",
-          "text": "the remote diagnosis and treatment of patients via telecommunications technology",
-          "secretLetters": "vl"
+          "text": "enhances privacy rights by giving individuals control over their personal data collected by organizations",
+          "secretLetters": "h"
         },
         {
           "code": "166",
-          "text": "helps reach patients in remote areas",
-          "secretLetters": "a"
+          "text": "requires organizations to obtain explicit consent from individuals before processing their personal data",
+          "secretLetters": "s"
         },
         {
           "code": "167",
-          "text": "includes consultations via video calls",
-          "secretLetters": "u"
+          "text": "mandates prompt notification of data breaches to authorities and affected individuals",
+          "secretLetters": "l"
         },
         {
           "code": "168",
-          "text": "can offer follow-up visits, and remote chronic disease management",
-          "secretLetters": "i"
+          "text": "implements 'right to access' allowing individuals to request a copy of their personal data stored by an organization",
+          "secretLetters": "d"
         },
         {
           "code": "169",
-          "text": "requires secure internet connections to protect patient privacy",
-          "secretLetters": "rt"
+          "text": "supports the 'right to be forgotten,' enabling individuals to request the deletion of their data under specific conditions",
+          "secretLetters": "i"
         }
       ],
-      "secret": "virtual",
-      "secretDescription": "describes the virtual bridge connecting patients and healthcare providers, transcending geographical barriers to deliver care remotely."
-    },
+      "secret": "shield",
+      "secretDescription": "symbolizes the protective nature of GDPR, shielding individuals' personal data from misuse and ensuring their rights are respected by organizations that collect and process their information"
+    },    
     {
       "id": 34,
-      "category": "communication terminologies",
-      "name": "patient-centered care",
+      "category": "terminologies",
+      "name": "FHIR",
       "statements": [
         {
           "code": "170",
-          "text": "focuses on the patient’s specific health needs and desired outcomes",
-          "secretLetters": "a"
+          "text": "is a standards framework designed to enable the efficient exchange of electronic health records",
+          "secretLetters": "af"
         },
         {
           "code": "171",
-          "text": "involves the patient in all healthcare decisions",
-          "secretLetters": "ce"
+          "text": "utilizes modern web technologies and protocols, such as RESTful APIs, to facilitate real-time data sharing",
+          "secretLetters": "s"
         },
         {
           "code": "172",
-          "text": "recognizes the patient’s preferences, values, and family situations",
-          "secretLetters": "f"
+          "text": "supports interoperability between legacy healthcare systems and newer applications, enhancing system connectivity",
+          "secretLetters": "re"
         },
         {
           "code": "173",
-          "text": "encourages active collaboration among healthcare teams to meet patient needs",
-          "secretLetters": "r"
+          "text": "employs a modular architecture with resources that can be combined to solve clinical and administrative problems efficiently",
+          "secretLetters": "n"
         },
         {
           "code": "174",
-          "text": "associated with improved patient satisfaction and outcomes",
-          "secretLetters": "td"
+          "text": "promotes seamless patient data integration across different platforms and devices, ensuring more comprehensive patient care",
+          "secretLetters": "tr"
         }
       ],
-      "secret": "crafted",
-      "secretDescription": "reflects the personalized and tailored approach of patient-centered care, where healthcare plans are meticulously 'crafted' to meet the unique needs and preferences of each patient."
-    },
+      "secret": "transfer",
+      "secretDescription": "reflects the movement and exchange of health data facilitated by FHIR, enabling the seamless transfer of patient information across diverse healthcare systems and applications"
+    },    
     {
       "id": 40,
-      "category": "web3 benefits",
+      "category": "web3",
       "name": "enhanced data security",
       "statements": [
         {
@@ -508,11 +508,11 @@
         }
       ],
       "secret": "scripted",
-      "secretDescription": "highlights the structured and secure nature of blockchain technology in safeguarding patient data, ensuring that it is protected, encrypted, and accessible only to authorized parties."
+      "secretDescription": "highlights the structured and secure nature of blockchain technology in safeguarding patient data, ensuring that it is protected, encrypted, and accessible only to authorized parties"
     },
     {
       "id": 41,
-      "category": "web3 benefits",
+      "category": "web3",
       "name": "improved patient control over health data",
       "statements": [
         {
@@ -542,11 +542,11 @@
         }
       ],
       "secret": "ownership",
-      "secretDescription": "emphasizes the shift in control and ownership of health data from healthcare providers to patients, empowering individuals to manage and protect their personal health information."
+      "secretDescription": "emphasizes the shift in control and ownership of health data from healthcare providers to patients, empowering individuals to manage and protect their personal health information"
     },
     {
       "id": 42,
-      "category": "web3 benefits",
+      "category": "web3",
       "name": "streamlined clinical trials",
       "statements": [
         {
@@ -576,11 +576,11 @@
         }
       ],
       "secret": "discover",
-      "secretDescription": "describes how blockchain can provide new insights and breakthroughs in clinical research, enabling more efficient and reliable clinical trials that drive medical discoveries."
+      "secretDescription": "describes how blockchain can provide new insights and breakthroughs in clinical research, enabling more efficient and reliable clinical trials that drive medical discoveries"
     },
     {
       "id": 43,
-      "category": "web3 benefits",
+      "category": "web3",
       "name": "faster and more efficient billing",
       "statements": [
         {
@@ -610,11 +610,11 @@
         }
       ],
       "secret": "robust",
-      "secretDescription": "describes the strength and efficiency of blockchain-based billing systems, which are robust, secure, and capable of handling complex transactions with speed and accuracy."
+      "secretDescription": "describes the strength and efficiency of blockchain-based billing systems, which are robust, secure, and capable of handling complex transactions with speed and accuracy"
     },
     {
       "id": 44,
-      "category": "web3 benefits",
+      "category": "web3",
       "name": "global health data interoperability",
       "statements": [
         {
@@ -644,7 +644,7 @@
         }
       ],
       "secret": "interplay",
-      "secretDescription": "describes the dynamic and interconnected nature of global health data exchange, emphasizing the importance of information across diverse healthcare systems and regions."
+      "secretDescription": "describes the dynamic and interconnected nature of global health data exchange, emphasizing the importance of information across diverse healthcare systems and regions"
     }
   ]
 }

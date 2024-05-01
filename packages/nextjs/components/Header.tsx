@@ -20,17 +20,21 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
-    label: "🖥️ Blind Computation",
-    href: "/nillion-compute",
+    label: `¯\\_(ツ)_/¯ Hangman`,
+    href: "/nillion-hangman",
   },
-  {
-    label: "🎯 Hello World",
-    href: "/nillion-hello-world",
-  },
-  {
-    label: "✅ Hello World",
-    href: "/nillion-hello-world-complete",
-  },
+  // {
+  //   label: "🖥️ Blind Computation",
+  //   href: "/nillion-compute",
+  // },
+  // {
+  //   label: "🎯 Hello World",
+  //   href: "/nillion-hello-world",
+  // },
+  // {
+  //   label: "✅ Hello World",
+  //   href: "/nillion-hello-world-complete",
+  // },
   {
     label: "Debug Contracts",
     href: "/debug",

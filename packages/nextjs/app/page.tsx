@@ -44,8 +44,11 @@ const Home: NextPage = () => {
             <Link href="/nillion-pw-manager" passHref className="link">
               Nillion Password Manager
             </Link>{" "}
-            <Link href="/nillion-hello-world-complete" passHref className="link">
+            {/* <Link href="/nillion-hello-world-complete" passHref className="link">
               Nillion Hello World
+            </Link>{" "} */}
+            <Link href="/nillion-hangman" passHref className="link">
+              Nillion Hangman
             </Link>{" "}
             <Link href="/nillion-compute" passHref className="link">
               Nillion Blind Compute
