@@ -3,7 +3,7 @@
     {
       "id": 10,
       "category": "modalities",
-      "name": "xray",
+      "name": "Xray",
       "statements": [
         {
           "code": "100",
@@ -37,7 +37,7 @@
     {
       "id": 11,
       "category": "modalities",
-      "name": "ultrasound",
+      "name": "Ultrasound",
       "statements": [
         {
           "code": "105",
@@ -71,7 +71,7 @@
     {
       "id": 12,
       "category": "modalities",
-      "name": "mri",
+      "name": "MRI - Magnetic Resonance Imaging",
       "statements": [
         {
           "code": "110",
@@ -105,7 +105,7 @@
     {
       "id": 13,
       "category": "modalities",
-      "name": "ct",
+      "name": "CT - Computed Tomography",
       "statements": [
         {
           "code": "115",
@@ -139,7 +139,7 @@
     {
       "id": 20,
       "category": "diseases",
-      "name": "diabetes",
+      "name": "Diabetes",
       "statements": [
         {
           "code": "120",
@@ -173,7 +173,7 @@
     {
       "id": 21,
       "category": "diseases",
-      "name": "alzheimer",
+      "name": "Alzheimer",
       "statements": [
         {
           "code": "125",
@@ -207,7 +207,7 @@
     {
       "id": 22,
       "category": "diseases",
-      "name": "coronary artery disease",
+      "name": "Coronary Artery Disease",
       "statements": [
         {
           "code": "130",
@@ -241,7 +241,7 @@
     {
       "id": 23,
       "category": "diseases",
-      "name": "asthma",
+      "name": "Asthma",
       "statements": [
         {
           "code": "135",
@@ -275,7 +275,7 @@
     {
       "id": 24,
       "category": "diseases",
-      "name": "breast cancer",
+      "name": "Breast Cancer",
       "statements": [
         {
           "code": "140",
@@ -479,7 +479,7 @@
     {
       "id": 40,
       "category": "web3",
-      "name": "enhanced data security",
+      "name": "Enhanced Data Security",
       "statements": [
         {
           "code": "175",
@@ -513,7 +513,7 @@
     {
       "id": 41,
       "category": "web3",
-      "name": "improved patient control over health data",
+      "name": "Health Data",
       "statements": [
         {
           "code": "180",
@@ -547,7 +547,7 @@
     {
       "id": 42,
       "category": "web3",
-      "name": "streamlined clinical trials",
+      "name": "Streamlined Clinical Trials",
       "statements": [
         {
           "code": "185",
@@ -581,7 +581,7 @@
     {
       "id": 43,
       "category": "web3",
-      "name": "faster and more efficient billing",
+      "name": "Efficient Billing",
       "statements": [
         {
           "code": "190",
@@ -615,7 +615,7 @@
     {
       "id": 44,
       "category": "web3",
-      "name": "global health data interoperability",
+      "name": "Global Interoperability",
       "statements": [
         {
           "code": "195",
