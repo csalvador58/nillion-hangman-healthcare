@@ -31,10 +31,10 @@ export const menuLinks: HeaderMenuLink[] = [
   //   label: "🎯 Hello World",
   //   href: "/nillion-hello-world",
   // },
-  // {
-  //   label: "✅ Hello World",
-  //   href: "/nillion-hello-world-complete",
-  // },
+  {
+    label: "✅ Hello World",
+    href: "/nillion-hello-world-complete",
+  },
   {
     label: "Debug Contracts",
     href: "/debug",

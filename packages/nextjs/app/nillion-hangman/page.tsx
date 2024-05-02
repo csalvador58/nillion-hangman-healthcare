@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import GameUI from "~~/components/hangman/GameUI";
+import GameUI from "~~/components/hangman/gameui";
 import CodeSnippet from "~~/components/nillion/CodeSnippet";
 import { CopyString } from "~~/components/nillion/CopyString";
 import { NillionOnboarding } from "~~/components/nillion/NillionOnboarding";
@@ -29,15 +29,14 @@ const Hangman: NextPage = () => {
   const [nillion, setNillion] = useState<any>(null);
   const [nillionClient, setNillionClient] = useState<any>(null);
 
-  const [programName] = useState<string>("addition_simple");
+  const [programName] = useState<string>("hangman");
   const [programId, setProgramId] = useState<string | null>(null);
   const [computeResult, setComputeResult] = useState<string | null>(null);
 
   const [storedSecretsNameToStoreId, setStoredSecretsNameToStoreId] = useState<StringObject>({
-    my_int1: null,
-    my_int2: null,
+    input_blob: null,
   });
-  const [parties] = useState<string[]>(["Party1"]);
+  const [parties] = useState<string[]>(["Player1"]);
   const [outputs] = useState<string[]>(["my_output"]);
 
   const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -220,6 +219,40 @@ const Hangman: NextPage = () => {
             )}
           </div>
         </div>
+
+        {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-full rounded-3xl my-2 justify-between">
+          <h1 className="text-xl">Step 2: Store secret integers with program bindings to the {programName} program</h1>
+
+          <div className="flex flex-row w-full justify-between items-center my-10 mx-10">
+            {Object.keys(storedSecretsNameToStoreId).map(key => (
+              <div className="flex-1 px-2" key={key}>
+                {!!storedSecretsNameToStoreId[key] && userKey ? (
+                  <>
+                    <RetrieveSecretCommand
+                      secretType="SecretInteger"
+                      userKey={userKey}
+                      storeId={storedSecretsNameToStoreId[key]}
+                      secretName={key}
+                    />
+                    <button
+                      className="btn btn-sm btn-primary mt-4"
+                      onClick={() => handleRetrieveInt(key, storedSecretsNameToStoreId[key])}
+                    >
+                      👀 Retrieve SecretInteger
+                    </button>
+                  </>
+                ) : (
+                  <SecretForm
+                    secretName={key}
+                    onSubmit={handleSecretFormSubmit}
+                    isDisabled={!programId}
+                    secretType="number"
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </div> */}
       </div>
     </>
   );

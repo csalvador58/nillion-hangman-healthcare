@@ -8,31 +8,31 @@
         {
           "code": "100",
           "text": "employs a technique to visualize bone structures",
-          "secretLetters": "vb"
+          "secretLetters": "b"
         },
         {
           "code": "101",
           "text": "captured its first image of a hand",
-          "secretLetters": "ch"
+          "secretLetters": "s"
         },
         {
           "code": "102",
           "text": "was discovered by Wilhelm Conrad Roentgen",
-          "secretLetters": "wr"
+          "secretLetters": "n"
         },
         {
           "code": "103",
           "text": "is often the first test done for injuries involving fractures",
-          "secretLetters": "if"
+          "secretLetters": "e"
         },
         {
           "code": "104",
           "text": "used in dental assessments to detect cavities and root problems",
-          "secretLetters": "ds"
+          "secretLetters": "o"
         }
       ],
-      "secret": "view hard",
-      "secretDescription": "captures the essence of what X-rays do best—providing clear images of the body's hardest parts, crucial for diagnosing fractures, dental issues, and other skeletal problems. The phrase reflects the literal and figurative strength of X-ray technology in penetrating hard tissues to reveal hidden truths beneath the skin"
+      "secret": "bones",
+      "secretDescription": "Captures the essence of what X-rays do best—providing clear images of the body's hardest parts, crucial for diagnosing fractures, dental issues, and other skeletal problems. The phrase reflects the literal and figurative strength of X-ray technology in penetrating hard tissues to reveal hidden truths beneath the skin"
     },
     {
       "id": 11,
@@ -42,31 +42,31 @@
         {
           "code": "105",
           "text": "uses high-frequency sound waves to produce images of the body",
-          "secretLetters": "suo"
+          "secretLetters": "s"
         },
         {
           "code": "106",
           "text": "is used to monitor fetal development",
-          "secretLetters": "fd"
+          "secretLetters": "n"
         },
         {
           "code": "107",
           "text": "safe for imaging soft tissues compared to other imaging modalities",
-          "secretLetters": "mg"
+          "secretLetters": "o"
         },
         {
           "code": "108",
           "text": "does not use ionizing radiation",
-          "secretLetters": "ir"
+          "secretLetters": "u"
         },
         {
           "code": "109",
           "text": "ideal for real-time imaging results",
-          "secretLetters": "tl"
+          "secretLetters": "n"
         }
       ],
-      "secret": "ultra forms",
-      "secretDescription": "Encapsulates how ultrasound is used to visualize and understand the intricate forms inside the human body. Whether it's monitoring fetal development, diagnosing conditions in soft tissues, or guiding minimally invasive procedures, ultrasound provides a critical window into the body's internal forms in motion"
+      "secret": "sound",
+      "secretDescription": "Describes what is used to visualize and understand the intricate forms inside the human body. Whether it's monitoring fetal development, diagnosing conditions in soft tissues, or guiding minimally invasive procedures, ultrasound provides a critical window into the body's internal forms in motion"
     },
     {
       "id": 12,
@@ -76,31 +76,31 @@
         {
           "code": "110",
           "text": "uses a magnetic field and radio waves to produce images of the body",
-          "secretLetters": "mra"
+          "secretLetters": "f"
         },
         {
           "code": "111",
           "text": "provides high-resolution images of soft tissues",
-          "secretLetters": "hs"
+          "secretLetters": "l"
         },
         {
           "code": "112",
           "text": "useful for diagnosing brain disorders",
-          "secretLetters": "bd"
+          "secretLetters": "e"
         },
         {
           "code": "113",
           "text": "is not recommended for patients with metal implants",
-          "secretLetters": "pt"
+          "secretLetters": "d"
         },
         {
           "code": "114",
           "text": "ideal for imaging joint structures and soft tissue injuries",
-          "secretLetters": "jn"
+          "secretLetters": "i"
         }
       ],
-      "secret": "brain jumps",
-      "secretDescription": "Describes how MRI technology is leveraged to explore and understand the complexities of the human brain, capturing its dynamic nature and the quick 'jumps' in brain activity related to different cognitive processes and disorders"
+      "secret": "field",
+      "secretDescription": "Describes how MRI uses radio waves in combination with a magnetic field to produce detailed images of the body's internal structures."
     },
     {
       "id": 13,
@@ -110,31 +110,31 @@
         {
           "code": "115",
           "text": "uses a technique to produce cross-sectional images of the body",
-          "secretLetters": "cs"
+          "secretLetters": "c"
         },
         {
           "code": "116",
           "text": "provides detailed images of bones and soft tissues",
-          "secretLetters": "db"
+          "secretLetters": "i"
         },
         {
           "code": "117",
           "text": "involves a rotating x-ray machine with speeds up to 0.28 seconds per rotation",
-          "secretLetters": "rx"
+          "secretLetters": "l"
         },
         {
           "code": "118",
           "text": "is often used in emergency situations for quick diagnosis",
-          "secretLetters": "eq"
+          "secretLetters": "s"
         },
         {
           "code": "119",
           "text": "can be used to guide biopsies and other procedures",
-          "secretLetters": "gp"
+          "secretLetters": "e"
         }
       ],
-      "secret": "precise dx",
-      "secretDescription": "highlights the accuracy and reliability of CT scans in providing detailed cross-sectional views of the body, which are crucial for accurate diagnosis (DX) and subsequent treatments, including guiding intricate procedures like biopsies"
+      "secret": "slice",
+      "secretDescription": "In a CT scan, the machine takes multiple cross-sectional images of the body, which are often referred to as 'slices.' These slices can then be compiled to create a detailed 3D image of the scanned area."
     },
     {
       "id": 20,
@@ -144,31 +144,31 @@
         {
           "code": "120",
           "text": "is a chronic condition that affects glucose metabolism",
-          "secretLetters": "mg"
+          "secretLetters": "u"
         },
         {
           "code": "121",
           "text": "Type 1 diabetes is characterized by the absence of insulin production",
-          "secretLetters": "tp"
+          "secretLetters": "r"
         },
         {
           "code": "122",
           "text": "Type 2 diabetes often results from body's resistance to insulin",
-          "secretLetters": "bi"
+          "secretLetters": "s"
         },
         {
           "code": "123",
           "text": "can lead to serious complications like heart disease, kidney damage, and vision loss",
-          "secretLetters": "cv"
+          "secretLetters": "g"
         },
         {
           "code": "124",
           "text": "is manageable with diet, exercise, and medication",
-          "secretLetters": "dr"
+          "secretLetters": "a"
         }
       ],
-      "secret": "impact grid",
-      "secretDescription": "represents the systematic and widespread effects of diabetes across a grid-like spectrum of bodily functions. The term grid underscores the organized yet complex pattern of influence that diabetes has, affecting everything from vision to heart health, and necessitates a comprehensive understanding of its impact"
+      "secret": "sugar",
+      "secretDescription": "Diabetes is a metabolic disease characterized primarily by elevated blood sugar levels over a prolonged period."
     },
     {
       "id": 21,
@@ -178,31 +178,31 @@
         {
           "code": "125",
           "text": "is a progressive brain disorder that slowly destroys memory and thinking skills",
-          "secretLetters": "md"
+          "secretLetters": "b"
         },
         {
           "code": "126",
           "text": "is the most common cause of dementia among older adults",
-          "secretLetters": "do"
+          "secretLetters": "a"
         },
         {
           "code": "127",
           "text": "has no current cure, but treatments for symptoms are available",
-          "secretLetters": "ct"
+          "secretLetters": "i"
         },
         {
           "code": "128",
           "text": "risk factors include age, genetics, and certain lifestyle factors",
-          "secretLetters": "gl"
+          "secretLetters": "r"
         },
         {
           "code": "129",
           "text": "early symptoms are often mistaken for normal aging",
-          "secretLetters": "es"
+          "secretLetters": "n"
         }
       ],
-      "secret": "lost mind",
-      "secretDescription": "describes the tragic essence of the gradual loss of one's mental faculties and the identity crisis that ensues. It reflects the progressive nature of the disease where patients experience a slow erosion of their mental capabilities"
+      "secret": "brain",
+      "secretDescription": "Alzheimer's disease is a progressive neurodegenerative disorder that primarily affects the brain, leading to memory loss, cognitive decline, and personality changes."
     },
     {
       "id": 22,
@@ -212,31 +212,31 @@
         {
           "code": "130",
           "text": "is the most common type of heart disease",
-          "secretLetters": "ch"
+          "secretLetters": "e"
         },
         {
           "code": "131",
           "text": "occurs when the organ supplying blood to the heart become hardened and narrowed",
-          "secretLetters": "ad"
+          "secretLetters": "h"
         },
         {
           "code": "132",
           "text": "can lead to chest pain, heart attack, or stroke",
-          "secretLetters": "st"
+          "secretLetters": "a"
         },
         {
           "code": "133",
           "text": "risk factors include smoking, high cholesterol, and high blood pressure",
-          "secretLetters": "pr"
+          "secretLetters": "r"
         },
         {
           "code": "134",
           "text": "treatment often involves lifestyle changes, medications, and sometimes surgical procedures",
-          "secretLetters": "ol"
+          "secretLetters": "t"
         }
       ],
-      "secret": "stop hard",
-      "secretDescription": "captures the urgency and gravity of coronary artery disease, emphasizing the need to 'stop' the hardening and narrowing of arteries that can lead to life-threatening conditions like heart attacks and strokes. The phrase underscores the critical importance of early intervention and treatment"
+      "secret": "heart",
+      "secretDescription": "Coronary artery disease is a common heart condition that occurs when the blood vessels supplying the heart become narrowed or blocked, leading to reduced blood flow and potential complications like heart attacks and strokes."
     },
     {
       "id": 23,
@@ -246,31 +246,31 @@
         {
           "code": "135",
           "text": "is a chronic condition that inflames and narrows the airways",
-          "secretLetters": "ca"
+          "secretLetters": "s"
         },
         {
           "code": "136",
           "text": "symptoms include wheezing, shortness of breath, chest tightness, and coughing",
-          "secretLetters": "wb"
+          "secretLetters": "u"
         },
         {
           "code": "137",
           "text": "triggers can include pollen, dust mites, smoke, and cold air",
-          "secretLetters": "ps"
+          "secretLetters": "l"
         },
         {
           "code": "138",
           "text": "management involves avoiding triggers and using prescribed inhalers",
-          "secretLetters": "i"
+          "secretLetters": "g"
         },
         {
           "code": "139",
           "text": "can vary in intensity and may require emergency treatment",
-          "secretLetters": "et"
+          "secretLetters": "n"
         }
       ],
-      "secret": "sweep air",
-      "secretDescription": "illustrates the need for clear air passages and the action of inhalers, which help 'sweep' through the constrictions to ease breathing"
+      "secret": "lungs",
+      "secretDescription": "Asthma is a chronic respiratory condition that affects the airways, making it difficult to breathe."
     },
     {
       "id": 24,
@@ -285,26 +285,26 @@
         {
           "code": "141",
           "text": "is the most common type of cancer overall with an estimated 310,720 women and 2,790 men will be diagnosed with breast cancer in 2024",
-          "secretLetters": "rm"
+          "secretLetters": "v"
         },
         {
           "code": "142",
           "text": "genetic factors like BRCA1 and BRCA2 mutations increase risk",
-          "secretLetters": "g"
+          "secretLetters": "r"
         },
         {
           "code": "143",
           "text": "mammograms are used for early detection",
-          "secretLetters": "d"
+          "secretLetters": "a"
         },
         {
           "code": "144",
           "text": "a lumpectomy or mastectomy may be recommended for treatment",
-          "secretLetters": "l"
+          "secretLetters": "e"
         }
       ],
-      "secret": "brave mold",
-      "secretDescription": "the courage patients show and the transformative journey they undergo, both physically and emotionally. The term 'mold' represents the reshaping and remolding of one's life and body after a breast cancer diagnosis, embodying the strength and resilience needed to face the challenges ahead"
+      "secret": "brave",
+      "secretDescription": "Breast cancer is a disease that requires courage and strength to face. The term 'brave' reflects the resilience and bravery of individuals who confront this diagnosis, undergo treatment, and strive to overcome the challenges associated with breast cancer."
     },
     {
       "id": 30,
@@ -314,31 +314,31 @@
         {
           "code": "150",
           "text": "stands for Health Insurance Portability and Accountability Act",
-          "secretLetters": "py"
+          "secretLetters": "i"
         },
         {
           "code": "151",
           "text": "protects the privacy of patient health information",
-          "secretLetters": "r"
+          "secretLetters": "a"
         },
         {
           "code": "152",
           "text": "requires healthcare providers to secure patient records",
-          "secretLetters": "i"
+          "secretLetters": "u"
         },
         {
           "code": "153",
           "text": "includes provisions to prevent healthcare fraud",
-          "secretLetters": "va"
+          "secretLetters": "t"
         },
         {
           "code": "154",
           "text": "patients can request copies of their health records under this act",
-          "secretLetters": "c"
+          "secretLetters": "d"
         }
       ],
-      "secret": "privacy",
-      "secretDescription": " directly aligns with HIPAA's primary focus — the protection and privacy of patient health information"
+      "secret": "audit",
+      "secretDescription": "Strict oversight and accountability are required by HIPAA, ensuring that healthcare providers adhere to strict standards for protecting patient information and maintaining the integrity of health records."
     },
     {
       "id": 31,
@@ -372,8 +372,8 @@
         }
       ],
       "secret": "unify",
-      "secretDescription": "reflects the role of DICOM to ensure medical imaging technologies and data across diverse systems, enabling seamless communication and interoperability between healthcare providers and facilities"
-    },    
+      "secretDescription": "The role of DICOM is to ensure medical imaging technologies and data across diverse systems enables seamless communication and interoperability between healthcare providers and facilities"
+    },
     {
       "id": 32,
       "category": "terminologies",
@@ -382,31 +382,31 @@
         {
           "code": "160",
           "text": "stands for Electronic Medical Record",
-          "secretLetters": "nd"
+          "secretLetters": "r"
         },
         {
           "code": "161",
           "text": "digitally records patient’s medical history",
-          "secretLetters": "se"
+          "secretLetters": "c"
         },
         {
           "code": "162",
           "text": "used primarily within one healthcare practice",
-          "secretLetters": "mc"
+          "secretLetters": "t"
         },
         {
           "code": "163",
           "text": "can be shared electronically with other healthcare providers with proper consent",
-          "secretLetters": "ap"
+          "secretLetters": "a"
         },
         {
           "code": "164",
           "text": "enhances efficiency of patient care management",
-          "secretLetters": "i"
+          "secretLetters": "h"
         }
       ],
-      "secret": "mindscape",
-      "secretDescription": "reflects the vast landscape of patient information stored in EMRs, detailing a patient's medical history, treatments, and care plans. The term 'mindscape' symbolizes the digital realm where healthcare providers navigate to access and manage patient data"
+      "secret": "chart",
+      "secretDescription": "EMR systems are used to store, organize, and manage patients' medical charts digitally, replacing traditional paper files."
     },
     {
       "id": 33,
@@ -440,8 +440,8 @@
         }
       ],
       "secret": "shield",
-      "secretDescription": "symbolizes the protective nature of GDPR, shielding individuals' personal data from misuse and ensuring their rights are respected by organizations that collect and process their information"
-    },    
+      "secretDescription": "The protective nature of GDPR is to shield individuals' personal data from misuse and ensuring their rights are respected by organizations that collect and process their information."
+    },
     {
       "id": 34,
       "category": "terminologies",
@@ -450,7 +450,7 @@
         {
           "code": "170",
           "text": "is a standards framework designed to enable the efficient exchange of electronic health records",
-          "secretLetters": "af"
+          "secretLetters": "e"
         },
         {
           "code": "171",
@@ -460,22 +460,22 @@
         {
           "code": "172",
           "text": "supports interoperability between legacy healthcare systems and newer applications, enhancing system connectivity",
-          "secretLetters": "re"
+          "secretLetters": "r"
         },
         {
           "code": "173",
           "text": "employs a modular architecture with resources that can be combined to solve clinical and administrative problems efficiently",
-          "secretLetters": "n"
+          "secretLetters": "u"
         },
         {
           "code": "174",
           "text": "promotes seamless patient data integration across different platforms and devices, ensuring more comprehensive patient care",
-          "secretLetters": "tr"
+          "secretLetters": "l"
         }
       ],
-      "secret": "transfer",
-      "secretDescription": "reflects the movement and exchange of health data facilitated by FHIR, enabling the seamless transfer of patient information across diverse healthcare systems and applications"
-    },    
+      "secret": "rules",
+      "secretDescription": "The movement and exchange of health data facilitated by FHIR uses strict rules to ensure seamless transfer of patient information across diverse healthcare systems and applications."
+    },
     {
       "id": 40,
       "category": "web3",
@@ -484,22 +484,22 @@
         {
           "code": "175",
           "text": "utilizes blockchain technology to ensure data is immutable and tamper-proof",
-          "secretLetters": "cd"
+          "secretLetters": "y"
         },
         {
           "code": "176",
           "text": "encrypts patient data to prevent unauthorized access",
-          "secretLetters": "se"
+          "secretLetters": "t"
         },
         {
           "code": "177",
           "text": "allows secure sharing of medical records between authorized parties",
-          "secretLetters": "i"
+          "secretLetters": "c"
         },
         {
           "code": "178",
           "text": "reduces the risk of data breaches compared to traditional data storage systems",
-          "secretLetters": "rt"
+          "secretLetters": "r"
         },
         {
           "code": "179",
@@ -507,7 +507,7 @@
           "secretLetters": "p"
         }
       ],
-      "secret": "scripted",
+      "secret": "crypt",
       "secretDescription": "highlights the structured and secure nature of blockchain technology in safeguarding patient data, ensuring that it is protected, encrypted, and accessible only to authorized parties"
     },
     {
@@ -518,31 +518,31 @@
         {
           "code": "180",
           "text": "enables patients to own and control their medical records",
-          "secretLetters": "ei"
+          "secretLetters": "w"
         },
         {
           "code": "181",
           "text": "patients can grant or revoke access to their health data at any time",
-          "secretLetters": "nh"
+          "secretLetters": "n"
         },
         {
           "code": "182",
           "text": "enables patient consent management through smart contracts",
-          "secretLetters": "rp"
+          "secretLetters": "r"
         },
         {
           "code": "183",
           "text": "empowers patients by giving them visibility into who accesses their information",
-          "secretLetters": "ow"
+          "secretLetters": "o"
         },
         {
           "code": "184",
           "text": "promotes patient privacy and autonomy",
-          "secretLetters": "s"
+          "secretLetters": "e"
         }
       ],
-      "secret": "ownership",
-      "secretDescription": "emphasizes the shift in control and ownership of health data from healthcare providers to patients, empowering individuals to manage and protect their personal health information"
+      "secret": "owner",
+      "secretDescription": "Emphasizes the shift in control and ownership of health data from healthcare providers to patients, empowering individuals to manage and protect their personal health information"
     },
     {
       "id": 42,
@@ -552,31 +552,31 @@
         {
           "code": "185",
           "text": "blockchain can securely manage consent forms and trial data",
-          "secretLetters": "i"
+          "secretLetters": "t"
         },
         {
           "code": "186",
           "text": "facilitates real-time data collection and sharing among trial participants",
-          "secretLetters": "oe"
+          "secretLetters": "o"
         },
         {
           "code": "187",
           "text": "enhances the reliability and validity of trial results",
-          "secretLetters": "dv"
+          "secretLetters": "n"
         },
         {
           "code": "188",
           "text": "allows for more efficient recruitment and retention of trial participants",
-          "secretLetters": "s"
+          "secretLetters": "k"
         },
         {
           "code": "189",
           "text": "reduces administrative costs and errors associated with clinical trials",
-          "secretLetters": "cr"
+          "secretLetters": "e"
         }
       ],
-      "secret": "discover",
-      "secretDescription": "describes how blockchain can provide new insights and breakthroughs in clinical research, enabling more efficient and reliable clinical trials that drive medical discoveries"
+      "secret": "token",
+      "secretDescription": "Blockchain can provide new insights and breakthroughs in clinical research, enabling more efficient and reliable clinical trials that drive medical discoveries."
     },
     {
       "id": 43,
@@ -586,31 +586,31 @@
         {
           "code": "190",
           "text": "smart contracts can automate billing processes, reducing delays",
-          "secretLetters": "b"
+          "secretLetters": "c"
         },
         {
           "code": "191",
           "text": "ensures transparency and accuracy transactions",
-          "secretLetters": "r"
+          "secretLetters": "i"
         },
         {
           "code": "192",
           "text": "reduces fraud and disputes in billing",
-          "secretLetters": "u"
+          "secretLetters": "a"
         },
         {
           "code": "193",
           "text": "decreases administrative costs associated with manual billing systems",
-          "secretLetters": "os"
+          "secretLetters": "n"
         },
         {
           "code": "194",
           "text": "enhances patient satisfaction with quicker billing resolution",
-          "secretLetters": "t"
+          "secretLetters": "h"
         }
       ],
-      "secret": "robust",
-      "secretDescription": "describes the strength and efficiency of blockchain-based billing systems, which are robust, secure, and capable of handling complex transactions with speed and accuracy"
+      "secret": "chain",
+      "secretDescription": "The strength and efficiency of blockchain-based billing systems will be robust, secure, and capable of handling complex transactions with speed and accuracy."
     },
     {
       "id": 44,
@@ -620,31 +620,31 @@
         {
           "code": "195",
           "text": "facilitates seamless exchange of health information across borders",
-          "secretLetters": "ia"
+          "secretLetters": "d"
         },
         {
           "code": "196",
           "text": "supports global health monitoring and response efforts",
-          "secretLetters": "el"
+          "secretLetters": "e"
         },
         {
           "code": "197",
           "text": "enhances collaborative research and healthcare delivery",
-          "secretLetters": "ty"
+          "secretLetters": "n"
         },
         {
           "code": "198",
           "text": "overcomes traditional barriers of data silos and incompatible systems",
-          "secretLetters": "np"
+          "secretLetters": "o"
         },
         {
           "code": "199",
           "text": "promotes a unified standard for health data that aids in worldwide healthcare improvement",
-          "secretLetters": "r"
+          "secretLetters": "s"
         }
       ],
-      "secret": "interplay",
-      "secretDescription": "describes the dynamic and interconnected nature of global health data exchange, emphasizing the importance of information across diverse healthcare systems and regions"
+      "secret": "nodes",
+      "secretDescription": "Nodes are crucial components that uphold the network. They store, spread, and preserve the blockchain data, contributing to the decentralized nature of the system."
     }
   ]
 }
