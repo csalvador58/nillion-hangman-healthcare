@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
+import { set } from "nprogress";
 import { useAccount } from "wagmi";
 import GameUI from "~~/components/hangman/GameUI";
 import CodeSnippet from "~~/components/nillion/CodeSnippet";
@@ -39,8 +40,6 @@ const Hangman: NextPage = () => {
   const [parties] = useState<string[]>(["Player1"]);
   const [outputs] = useState<string[]>(["my_output"]);
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
-
   // connect to snap
   async function handleConnectToSnap() {
     const snapResponse = await getUserKeyFromSnap();
@@ -49,9 +48,9 @@ const Hangman: NextPage = () => {
   }
 
   // store program in the Nillion network and set the resulting program id
-  async function handleStoreProgram() {
-    await storeProgram(nillionClient, programName).then(setProgramId);
-  }
+  // async function handleStoreProgram() {
+  //   await storeProgram(nillionClient, programName).then(setProgramId);
+  // }
 
   async function handleRetrieveInt(secret_name: string, store_id: string | null) {
     if (store_id) {
@@ -133,6 +132,19 @@ const Hangman: NextPage = () => {
     }
   }
 
+  async function storeProgramAndSecrets(secrets: number[]) {
+    console.log("storing program and secrets");
+    // store program in the Nillion network and set the resulting program id
+    await storeProgram(nillionClient, programName).then(setProgramId);
+
+    // store secrets with program bindings
+    handleSecretFormSubmit
+  }
+
+  async function checkSelectedStatement(code: string) {
+    console.log("selected statement code: " + code);
+  }
+
   return (
     <>
       <div className="flex items-center flex-col pt-10">
@@ -149,12 +161,12 @@ const Hangman: NextPage = () => {
             )}
           </h1>
 
-          {connectedAddress && (
+          {/* {connectedAddress && (
             <div className="flex justify-center items-center space-x-2">
               <p className="my-2 font-medium">Connected Wallet Address:</p>
               <Address address={connectedAddress} />
             </div>
-          )}
+          )} */}
 
           {connectedAddress && !connectedToSnap && (
             <button className="btn btn-sm btn-primary mt-4" onClick={handleConnectToSnap}>
@@ -166,7 +178,7 @@ const Hangman: NextPage = () => {
             <div>
               {userKey && (
                 <div>
-                  <div className="flex justify-center items-center space-x-2">
+                  {/* <div className="flex justify-center items-center space-x-2">
                     <p className="my-2 font-medium">
                       🤫 Nillion User Key from{" "}
                       <a target="_blank" href="https://nillion-snap-site.vercel.app/" rel="noopener noreferrer">
@@ -176,7 +188,7 @@ const Hangman: NextPage = () => {
                     </p>
 
                     <CopyString str={userKey} />
-                  </div>
+                  </div> */}
 
                   {userId && (
                     <div className="flex justify-center items-center space-x-2">
@@ -196,25 +208,26 @@ const Hangman: NextPage = () => {
               <NillionOnboarding />
             ) : (
               <div>
-                <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
+                {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
                   <h1 className="text-xl">Step 1: Store a Nada program</h1>
-                  {!programId ? (
-                    <button className="btn btn-sm btn-primary mt-4" onClick={handleStoreProgram}>
-                      Store {programName} program
-                    </button>
-                  ) : (
+                  {programId ? (
                     <div>
                       ✅ {programName} program stored <br />
                       <span className="flex">
                         <CopyString str={programId} start={5} end={programName.length + 5} textBefore="program_id: " />
                       </span>
                     </div>
+                  ) : (
+                    <div>No Program Stored</div>
                   )}
 
                   <CodeSnippet program_name={programName} />
-                </div>
+                </div> */}
 
-                <GameUI selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                <GameUI
+                  checkSelectedStatement={checkSelectedStatement}
+                  storeProgramAndSecrets={storeProgramAndSecrets}
+                />
               </div>
             )}
           </div>

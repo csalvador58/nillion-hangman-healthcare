@@ -2,23 +2,25 @@ from nada_dsl import *
 
 
 def nada_main():
-    fail_limit = 4
     num_valid_stmts = 5
 
-    player1 = Party(name="Player1")
-    # num_inputs = SecretInteger(Input(name="num_guesses", party=player1))
-    # secret_codes = Array(
-    #     SecretInteger(Input(name="secret_codes", party=player1)), size=5
-    # )
+    program = Party(name="program")
+    player1 = Party(name="player1")
+    player_guess = SecretInteger(Input(name="player_guess", party=player1))
+    secret_codes = []
+    for i in range(num_valid_stmts):
+        secret_codes.append(
+            SecretInteger(Input(name=f"secret_code_{i}", party=program))
+        )
+    
+    # check if the player's guess is found in array of secret codes
+    @nada_fn
+    def isStatementCorrect(input) -> Integer:
+        result = Integer(0)
+        for i in range(num_valid_stmts):
+            result = (secret_codes[i] == input).if_else(Integer(1), Integer(0))
+        return result
 
-    player_inputs = Array(
-        SecretInteger(Input(name="input_blob", party=player1)), size=10
-    )
+    result = isStatementCorrect(player_guess)
 
-    # @nada_fn
-    # def isStatementCorrect(input) -> Integer:
-    #     result = Integer(0)
-    #     for i in range(num_valid_stmts):
-    #         result = (secret_codes[i] == input).if_else(Integer(1), Integer(0))
-    #     return result
-    return [Output(player_inputs, "my_output", player1)]
+    return [Output(result, "is_code_valid", player1)]

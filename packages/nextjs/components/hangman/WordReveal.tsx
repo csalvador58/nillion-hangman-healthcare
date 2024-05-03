@@ -29,11 +29,12 @@ const WordReveal = () => {
       </div>
       <div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="word" className="block text-md font-medium">
+          <label htmlFor="word-reveal" className="block text-md font-medium">
             Guess the word:
           </label>
           <input
-            id="word"
+            id="word-reveal"
+            name="word-reveal"
             type="text"
             value={wordInput}
             className="input input-primary-content text-center my-2"
