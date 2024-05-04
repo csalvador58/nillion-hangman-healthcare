@@ -10,16 +10,16 @@ export async function compute(
   nillionClient: any,
   store_ids: (string | null)[],
   program_id: string,
-  outputName: string,
+  outputName: string[],
   computeTimeSecrets: JsInput[] = [],
   publicVariables: JsInput[] = [],
-): Promise<string> {
+): Promise<string[]> {
   try {
     // create program bindings with the program id
     const program_bindings = new nillion.ProgramBindings(program_id);
 
     // add input and output party details (name and party id) to program bindings
-    const partyName = "Party1";
+    const partyName = "player1";
     const party_id = nillionClient.party_id;
     program_bindings.add_input_party(partyName, party_id);
     program_bindings.add_output_party(partyName, party_id);
@@ -56,10 +56,13 @@ export async function compute(
     );
 
     const compute_result = await nillionClient.compute_result(compute_result_uuid);
-    const result = compute_result[outputName].toString();
+    const result = [];
+    for (const output of outputName) {
+      result.push(compute_result[output].toString());
+    }
     return result;
   } catch (error: any) {
     console.log("error", error);
-    return "error";
+    return ["error"];
   }
 }

@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import { set } from "nprogress";
 import { useAccount } from "wagmi";
 import GameUI from "~~/components/hangman/GameUI";
+import { GameConfig, initGameAndSecrets } from "~~/components/hangman/nillion/initGameAndSecrets";
 import CodeSnippet from "~~/components/nillion/CodeSnippet";
 import { CopyString } from "~~/components/nillion/CopyString";
 import { NillionOnboarding } from "~~/components/nillion/NillionOnboarding";
@@ -18,8 +19,8 @@ import { retrieveSecretInteger } from "~~/utils/nillion/retrieveSecretInteger";
 import { storeProgram } from "~~/utils/nillion/storeProgram";
 import { storeSecretsInteger } from "~~/utils/nillion/storeSecretsInteger";
 
-interface StringObject {
-  [key: string]: string | null;
+export interface StringObject {
+  [key: string]: string;
 }
 
 const Hangman: NextPage = () => {
@@ -32,13 +33,14 @@ const Hangman: NextPage = () => {
 
   const [programName] = useState<string>("hangman");
   const [programId, setProgramId] = useState<string | null>(null);
-  const [computeResult, setComputeResult] = useState<string | null>(null);
+  // const [computeResult, setComputeResult] = useState<string | null>(null);
+  const [gameConfig, setGameConfig] = useState<GameConfig>();
 
-  const [storedSecretsNameToStoreId, setStoredSecretsNameToStoreId] = useState<StringObject>({
-    input_blob: null,
-  });
-  const [parties] = useState<string[]>(["Player1"]);
-  const [outputs] = useState<string[]>(["my_output"]);
+  // const [storedSecretsNameToStoreId, setStoredSecretsNameToStoreId] = useState<StringObject>({
+  //   input_blob: null,
+  // });
+  const [parties] = useState<string[]>(["player1"]);
+  const [outputs] = useState<string[]>(["my_output1", "my_output2", "my_output3", "my_output4", "my_output5"]);
 
   // connect to snap
   async function handleConnectToSnap() {
@@ -52,10 +54,19 @@ const Hangman: NextPage = () => {
   //   await storeProgram(nillionClient, programName).then(setProgramId);
   // }
 
-  async function handleRetrieveInt(secret_name: string, store_id: string | null) {
-    if (store_id) {
-      const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
-      alert(`${secret_name} is ${value}`);
+  // async function handleRetrieveInt(secret_name: string, store_id: string | null) {
+  //   if (store_id) {
+  //     const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
+  //     alert(`${secret_name} is ${value}`);
+  //   }
+  // }
+  async function handleRetrieveInt() {
+    if (gameConfig) {
+      for (const secret of gameConfig.secrets) {
+        const [secret_name, store_id] = Object.entries(secret)[0];
+        const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
+        alert(`${secret_name} is ${value}`);
+      }
     }
   }
 
@@ -92,53 +103,63 @@ const Hangman: NextPage = () => {
     }
   }, [userKey]);
 
-  // handle form submit to store secrets with bindings
-  async function handleSecretFormSubmit(
-    secretName: string,
-    secretValue: string,
-    permissionedUserIdForRetrieveSecret: string | null,
-    permissionedUserIdForUpdateSecret: string | null,
-    permissionedUserIdForDeleteSecret: string | null,
-    permissionedUserIdForComputeSecret: string | null,
-  ) {
-    if (programId) {
-      const partyName = parties[0];
-      await storeSecretsInteger(
-        nillion,
-        nillionClient,
-        [{ name: secretName, value: secretValue }],
-        programId,
-        partyName,
-        permissionedUserIdForRetrieveSecret ? [permissionedUserIdForRetrieveSecret] : [],
-        permissionedUserIdForUpdateSecret ? [permissionedUserIdForUpdateSecret] : [],
-        permissionedUserIdForDeleteSecret ? [permissionedUserIdForDeleteSecret] : [],
-        permissionedUserIdForComputeSecret ? [permissionedUserIdForComputeSecret] : [],
-      ).then(async (store_id: string) => {
-        console.log("Secret stored at store_id:", store_id);
-        setStoredSecretsNameToStoreId(prevSecrets => ({
-          ...prevSecrets,
-          [secretName]: store_id,
-        }));
-      });
-    }
-  }
+  // // handle form submit to store secrets with bindings
+  // async function handleSecretFormSubmit(
+  //   secretName: string,
+  //   secretValue: string,
+  //   permissionedUserIdForRetrieveSecret: string | null,
+  //   permissionedUserIdForUpdateSecret: string | null,
+  //   permissionedUserIdForDeleteSecret: string | null,
+  //   permissionedUserIdForComputeSecret: string | null,
+  // ) {
+  //   if (programId) {
+  //     const partyName = parties[0];
+  //     await storeSecretsInteger(
+  //       nillion,
+  //       nillionClient,
+  //       [{ name: secretName, value: secretValue }],
+  //       programId,
+  //       partyName,
+  //       permissionedUserIdForRetrieveSecret ? [permissionedUserIdForRetrieveSecret] : [],
+  //       permissionedUserIdForUpdateSecret ? [permissionedUserIdForUpdateSecret] : [],
+  //       permissionedUserIdForDeleteSecret ? [permissionedUserIdForDeleteSecret] : [],
+  //       permissionedUserIdForComputeSecret ? [permissionedUserIdForComputeSecret] : [],
+  //     ).then(async (store_id: string) => {
+  //       console.log("Secret stored at store_id:", store_id);
+  //       setStoredSecretsNameToStoreId(prevSecrets => ({
+  //         ...prevSecrets,
+  //         [secretName]: store_id,
+  //       }));
+  //     });
+  //   }
+  // }
 
+  // // compute on secrets
+  // async function handleCompute() {
+  //   if (programId) {
+  //     await compute(nillion, nillionClient, Object.values(storedSecretsNameToStoreId), programId, outputs[0]).then(
+  //       result => setComputeResult(result),
+  //     );
+  //   }
+  // }
   // compute on secrets
   async function handleCompute() {
-    if (programId) {
-      await compute(nillion, nillionClient, Object.values(storedSecretsNameToStoreId), programId, outputs[0]).then(
-        result => setComputeResult(result),
-      );
-    }
+    console.log("computing");
+    if (!gameConfig) return;
+    const storeIds = gameConfig.secrets.map(secret => Object.values(secret)[0]);
+    const result = await compute(nillion, nillionClient, storeIds, gameConfig.programId, outputs);
+    console.log("compute result: ", result);
   }
 
-  async function storeProgramAndSecrets(secrets: number[]) {
-    console.log("storing program and secrets");
-    // store program in the Nillion network and set the resulting program id
-    await storeProgram(nillionClient, programName).then(setProgramId);
+  async function handleGameStart(gameSecrets: StringObject[]) {
+    console.log("initializing game and secrets");
 
-    // store secrets with program bindings
-    handleSecretFormSubmit
+    if (userKey) {
+      const partyName = parties[0];
+      const config = await initGameAndSecrets(nillion, nillionClient, programName, partyName, gameSecrets);
+      console.log("game config", config);
+      setGameConfig(config);
+    }
   }
 
   async function checkSelectedStatement(code: string) {
@@ -208,7 +229,7 @@ const Hangman: NextPage = () => {
               <NillionOnboarding />
             ) : (
               <div>
-                {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
+                <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
                   <h1 className="text-xl">Step 1: Store a Nada program</h1>
                   {programId ? (
                     <div>
@@ -222,12 +243,15 @@ const Hangman: NextPage = () => {
                   )}
 
                   <CodeSnippet program_name={programName} />
-                </div> */}
+                </div>
 
-                <GameUI
-                  checkSelectedStatement={checkSelectedStatement}
-                  storeProgramAndSecrets={storeProgramAndSecrets}
-                />
+                <button className="btn btn-primary mt-4" onClick={() => handleRetrieveInt()}>
+                  🎮 Retrieve secret
+                </button>
+                <button className="btn btn-primary mt-4" onClick={() => handleCompute()}>
+                  🧮 Compute
+                </button>
+                <GameUI checkSelectedStatement={checkSelectedStatement} handleGameStart={handleGameStart} />
               </div>
             )}
           </div>

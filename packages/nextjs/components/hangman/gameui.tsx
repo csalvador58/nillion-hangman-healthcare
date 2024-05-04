@@ -5,6 +5,7 @@ import SelectCategory from "./SelectCategory";
 import SelectStatements from "./SelectStatements";
 import WordReveal from "./WordReveal";
 import { getRandomSet, randomFillerStatements, shuffleStatements } from "./utils";
+import { StringObject } from "~~/app/nillion-hangman/page";
 
 const GAME_INFO = programData.list as unknown as HealthCareInfo[];
 const GAME_CATEGORIES = [...new Set(GAME_INFO.map(item => item.category))];
@@ -32,10 +33,10 @@ export interface HealthCareInfo {
 
 interface GameUIProps {
   checkSelectedStatement: (selectedStatement: string) => void;
-  storeProgramAndSecrets: (secrets: number[]) => void;
+  handleGameStart: (secrets: StringObject[]) => void;
 }
 
-const GameUI = ({ checkSelectedStatement, storeProgramAndSecrets }: GameUIProps) => {
+const GameUI = ({ checkSelectedStatement, handleGameStart }: GameUIProps) => {
   const [selectedCategorySet, setSelectedCategorySet] = useState<HealthCareInfo>();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [statements, setStatements] = useState<HealthCareInfo["statements"]>([]);
@@ -43,7 +44,7 @@ const GameUI = ({ checkSelectedStatement, storeProgramAndSecrets }: GameUIProps)
   const setTopicAndInitGame = (selectedCategory: string) => {
     let selectedCategorySet: HealthCareInfo[] = [];
     let falseStatements: HealthCareInfo["statements"] = [];
-    let secretCodeArray: number[] = [];
+    let secretCodeArray: StringObject[] = [];
 
     // Set the selected category
     setSelectedCategory(selectedCategory);
@@ -59,16 +60,18 @@ const GameUI = ({ checkSelectedStatement, storeProgramAndSecrets }: GameUIProps)
     // Get a random set of statements from the selected category
     const randomSet = getRandomSet(selectedCategorySet);
     if (!randomSet) return;
-    secretCodeArray = randomSet.statements.map(item => parseInt(item.code));
+    secretCodeArray = randomSet.statements.map((statement, index) => ({ [`stmt_code_${index+1}`]: statement.code }));
     setSelectedCategorySet(randomSet);
+
     // Setup false statements to be used as fillers in the game
     const fillerStatements = randomFillerStatements(falseStatements, 5);
+
     // Create an array of true and filler statements
     const shuffledStatements = shuffleStatements([...randomSet.statements, ...fillerStatements]);
     setStatements(shuffledStatements);
 
     // Init game by storing program and secrets
-    storeProgramAndSecrets(secretCodeArray);
+    handleGameStart(secretCodeArray);
   };
 
   const setName = selectedCategorySet
@@ -76,7 +79,7 @@ const GameUI = ({ checkSelectedStatement, storeProgramAndSecrets }: GameUIProps)
     : "";
 
   const handleSubmit = () => {
-    console.log("submitted");
+    console.log("submitted");11
   };
 
   const handleSelectStatement = (e: React.MouseEvent<HTMLButtonElement>) => {

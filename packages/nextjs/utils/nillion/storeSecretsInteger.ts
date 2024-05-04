@@ -1,6 +1,6 @@
 import { nillionConfig } from "./nillionConfig";
 
-interface JsInput {
+export interface JsInput {
   name: string;
   value: string;
 }
@@ -28,17 +28,21 @@ export async function storeSecretsInteger(
       // insert the SecretInteger into secrets object
       secrets.insert(secret.name, newSecret);
     }
+    // console.log("secrets:", secrets);
 
     // create program bindings for secret so it can be used in a specific program
+    // console.log("program_id:", program_id);
     const secret_program_bindings = new nillion.ProgramBindings(program_id);
 
     // set the input party to the bindings to specify which party will provide the secret
     const party_id = nillionClient.party_id;
+    // console.log("party_id:", party_id);
     secret_program_bindings.add_input_party(party_name, party_id);
     console.log("bindings, party_name:", party_name, "party_id", party_id);
 
     // get user id for user storing the secret
     const user_id = nillionClient.user_id;
+    // console.log("user_id:", user_id);
 
     // create a permissions object, give the storer default permissions, including compute permissions with the program id
     const permissions = nillion.Permissions.default_for_user(user_id, program_id);
