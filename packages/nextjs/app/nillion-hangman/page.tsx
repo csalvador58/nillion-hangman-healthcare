@@ -69,31 +69,21 @@ const Hangman: NextPage = () => {
     setConnectedToSnap(snapResponse?.connectedToSnap || false);
   }
 
-  // store program in the Nillion network and set the resulting program id
-  // async function handleStoreProgram() {
-  //   await storeProgram(nillionClient, programName).then(setProgramId);
-  // }
-
-  // async function handleRetrieveInt(secret_name: string, store_id: string | null) {
-  //   if (store_id) {
-  //     const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
-  //     alert(`${secret_name} is ${value}`);
+  // // Test Only
+  // async function handleRetrieveSecrets() {
+  //   if (gameConfig) {
+  //     for (const secret of gameConfig.secrets) {
+  //       const [secret_name, store_id] = Object.entries(secret)[0];
+  //       if (secret_name.includes("code")) {
+  //         const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
+  //         alert(`${secret_name} is ${value}`);
+  //       } else {
+  //         const value = await retrieveSecretBlob(nillionClient, store_id, secret_name);
+  //         alert(`${secret_name} is ${value}`);
+  //       }
+  //     }
   //   }
   // }
-  async function handleRetrieveSecrets() {
-    if (gameConfig) {
-      for (const secret of gameConfig.secrets) {
-        const [secret_name, store_id] = Object.entries(secret)[0];
-        if (secret_name.includes("code")) {
-          const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
-          alert(`${secret_name} is ${value}`);
-        } else {
-          const value = await retrieveSecretBlob(nillionClient, store_id, secret_name);
-          alert(`${secret_name} is ${value}`);
-        }
-      }
-    }
-  }
 
   // reset nillion values
   const resetNillion = () => {
@@ -128,27 +118,12 @@ const Hangman: NextPage = () => {
     }
   }, [userKey]);
 
-  // // compute on secrets
-  // async function handleCompute() {
-  //   if (programId) {
-  //     await compute(nillion, nillionClient, Object.values(storedSecretsNameToStoreId), programId, outputs[0]).then(
-  //       result => setComputeResult(result),
-  //     );
-  //   }
-  // }
-  // compute on secrets
-  async function handleCompute() {
-    console.log("computing");
-    if (!gameConfig) return;
-    const storeIds = gameConfig.secrets
-      .filter(secret => Object.keys(secret).includes("code"))
-      .map(secret => Object.values(secret)[0]);
-    console.log("storeIds: ", storeIds);
-    const result = await compute(nillion, nillionClient, storeIds, gameConfig.programId, outputs);
-    console.log("compute result: ", result);
-    return result;
-  }
-
+  /**
+   * Initializes the game to setup Nillion client and program ID.
+   * Creates secret integers for the 5 correct statement codes and
+   * secret blob for the secret word. Generates program bindings for the secrets
+   * for use on the Nillion network with the program ID.
+   */
   async function handleGameStart(secrets: { secretIntegers: StringObject[]; secretBlobs: StringObject[] }) {
     // Set game loading state
     setGameIsLoading({ status: true, text: "Loading game and storing secrets..." });
@@ -163,6 +138,12 @@ const Hangman: NextPage = () => {
     setGameIsLoading({ status: false, text: "" });
   }
 
+  /**
+   * Checks if the selected statement code is correct.
+   * First processes as a secret integer input to obtain a store id,
+   * then computes on the secrets. If return array of integers contains a 0,
+   * the player input was correct.
+   */
   async function checkSelectedStatement(code: string) {
     if (!gameConfig) {
       setGameIsLoading({ status: true, text: "Error, please refresh page and try again!" });
@@ -223,6 +204,10 @@ const Hangman: NextPage = () => {
     setGameIsLoading({ status: false, text: "" });
   }
 
+  /**
+   * Retrieves the secret word via secret blob from the Nillion network and
+   * checks if the player's guess is correct.
+   */
   async function handleWordGuess(word: string) {
     // Retrieve secret word
     const storeId = gameConfig?.secrets.find(secret => Object.keys(secret)[0].includes("secret_word"));
@@ -231,7 +216,6 @@ const Hangman: NextPage = () => {
       return;
     }
     const value = await retrieveSecretBlob(nillionClient, Object.values(storeId)[0], "secret_word");
-    console.log("secret word: ", value);
     if (value !== word) {
       if (gameScore.numFails < 4) {
         setGameScore({
@@ -333,12 +317,12 @@ const Hangman: NextPage = () => {
                   <CodeSnippet program_name={programName} />
                 </div> */}
 
-                <button className="btn btn-primary mt-4" onClick={() => handleRetrieveSecrets()}>
+                {/* <button className="btn btn-primary mt-4" onClick={() => handleRetrieveSecrets()}>
                   🎮 Retrieve secret
                 </button>
                 <button className="btn btn-primary mt-4" onClick={() => handleCompute()}>
                   🧮 Compute
-                </button>
+                </button> */}
                 <GameUI
                   gameIsLoading={gameIsLoading}
                   setGameIsLoading={setGameIsLoading}
@@ -347,6 +331,7 @@ const Hangman: NextPage = () => {
                   handleGameStart={handleGameStart}
                   gameScore={gameScore}
                 />
+                <div className="h-[25vh]"></div>
               </div>
             )}
           </div>

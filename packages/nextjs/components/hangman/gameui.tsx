@@ -1,6 +1,7 @@
 import { useState } from "react";
 import programData from "../../app/data/healthcare-info.json";
 import Directions from "./Directions";
+import FallingMan from "./FallingMan";
 import Scoreboard from "./Scoreboard";
 import SelectCategory from "./SelectCategory";
 import SelectStatements from "./SelectStatements";
@@ -86,10 +87,6 @@ const GameUI = ({
     // Loading state will be set to false in the handleGameStart function
   };
 
-  const setName = selectedCategorySet
-    ? selectedCategorySet?.name.charAt(0).toUpperCase() + selectedCategorySet?.name.slice(1)
-    : "";
-
   const handleSelectStatement = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const { id } = e.currentTarget;
     // Set game loading state
@@ -110,21 +107,27 @@ const GameUI = ({
     // Loading state will be set to false in the checkSelectedStatement function
   };
 
+  const setName = selectedCategorySet
+    ? selectedCategorySet?.name.charAt(0).toUpperCase() + selectedCategorySet?.name.slice(1)
+    : "";
+
   return (
     <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-full rounded-3xl my-2 justify-between relative">
-      <h1 className="sticky top-5 text-xl mx-auto w-fit py-2 px-5 rounded-lg bg-black bg-opacity-70">
+      <h1 className="sticky top-5 text-xl mx-auto w-fit py-2 px-5 rounded-lg bg-black bg-opacity-70 z-50">
         Falling Nillion game
       </h1>
-      <div className="grid grid-rows-3 grid-flow-col gap-2">
+      <div className="grid grid-rows-2 grid-flow-col gap-2">
         {/* Left side grid - Hangman animation main screen */}
-        <div className="row-start-1 row-end-3 w-[45vw] ... bg-slate-500 rounded-lg">01</div>
+        <div className="row-start-1 row-end-3 w-[500px] h-full ... bg-slate-500 rounded-lg">
+          <FallingMan gameScore={gameScore}/>
+        </div>
 
         {/* Upper right grid - Directions section */}
-        <div className="row-start-1 row-end-2 col-span-2 w-[45vw] ... bg-slate-400 rounded-lg">
+        <div className="row-start-1 row-end-2 col-span-2 w-[500px] ... bg-slate-400 rounded-lg">
           <Directions />
         </div>
         {/* Lower right grid - Select category or Word reveal section */}
-        <div className="row-start-2 row-end-3 col-span-2 ... bg-slate-500 flex justify-center items-center rounded-lg">
+        <div className="row-start-2 row-end-3 col-span-2 w-[500px] ... bg-slate-500 flex justify-center items-center rounded-lg">
           {!selectedCategory ? (
             <SelectCategory categories={GAME_CATEGORIES} setTopicAndInitGame={setTopicAndInitGame} />
           ) : (
