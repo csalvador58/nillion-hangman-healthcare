@@ -1,7 +1,9 @@
 import { HealthCareInfo, StmtStatus } from "./GameUI";
+import { GameResult, GameScore } from "~~/app/nillion-hangman/page";
 
 interface SelectStatementsProps {
   gameIsLoading: { status: boolean; text: string };
+  gameScore: GameScore;
   selectedCategory: string;
   setName: string;
   statements: HealthCareInfo["statements"];
@@ -10,6 +12,7 @@ interface SelectStatementsProps {
 
 const SelectStatements = ({
   gameIsLoading,
+  gameScore,
   selectedCategory,
   setName,
   statements,
@@ -23,7 +26,7 @@ const SelectStatements = ({
             <span className="text-red-700 text-2xl">{gameIsLoading.text || "Loading..."}</span>
           </div>
         ) : (
-          <h2 className="sticky top-0 bg-black py-2 w-screen max-w-screen ml-[calc(50%-50vw)] bg-opacity-80">
+          <h2 className="sticky top-0 bg-black py-2 w-screen max-w-screen ml-[calc(50%-50vw)] bg-opacity-90">
             Healthcare Topic:{" "}
             <span className="text-blue-600">
               {selectedCategory}
@@ -39,7 +42,7 @@ const SelectStatements = ({
               disabled={item.status === StmtStatus.selected}
               onClick={handleSelectStatement}
             >
-              {Array.from(item.secretLetters).map((letter, index) => (
+              {Array.from(item.secretLetter).map((letter, index) => (
                 <div key={`${idx}-${index}-${letter}`} className="bg-neutral-content rounded px-2 py-1 text-sm">
                   {letter}
                 </div>
@@ -52,9 +55,9 @@ const SelectStatements = ({
         ))}
       </ul>
       {/* Set overlay when loading */}
-      {gameIsLoading.status && (
-        <div className="fixed bottom-0 left-0 w-full h-1/3 overflow-auto bg-base-200 px-10 shadow-lg z-20 opacity-30" />
-      )}
+      {gameIsLoading.status || gameScore.validStmtCodes.length > 4 || gameScore.gameResult !== GameResult.playing ? (
+        <div className="fixed bottom-0 left-0 w-full h-1/3 overflow-auto bg-base-200 px-10 shadow-lg z-20 opacity-70" />
+      ) : null}
     </div>
   );
 };

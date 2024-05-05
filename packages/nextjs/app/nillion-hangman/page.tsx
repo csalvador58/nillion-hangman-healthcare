@@ -20,10 +20,16 @@ import { retrieveSecretInteger } from "~~/utils/nillion/retrieveSecretInteger";
 import { storeProgram } from "~~/utils/nillion/storeProgram";
 import { JsInput, storeSecretsInteger } from "~~/utils/nillion/storeSecretsInteger";
 
+export enum GameResult {
+  playing = "playing",
+  win = "win",
+  lose = "lose",
+}
 export interface GameScore {
   numCorrect: number;
-  numAttempts: number;
+  numFails: number;
   validStmtCodes: string[];
+  gameResult?: GameResult;
 }
 
 export interface StringObject {
@@ -44,8 +50,9 @@ const Hangman: NextPage = () => {
   const [gameConfig, setGameConfig] = useState<GameConfig>();
   const [gameScore, setGameScore] = useState<GameScore>({
     numCorrect: 0,
-    numAttempts: 0,
+    numFails: 0,
     validStmtCodes: [],
+    gameResult: GameResult.playing,
   });
   const [gameIsLoading, setGameIsLoading] = useState<{ status: boolean; text: string }>({ status: false, text: "" });
 
@@ -121,37 +128,6 @@ const Hangman: NextPage = () => {
     }
   }, [userKey]);
 
-  // // handle form submit to store secrets with bindings
-  // async function handleSecretFormSubmit(
-  //   secretName: string,
-  //   secretValue: string,
-  //   permissionedUserIdForRetrieveSecret: string | null,
-  //   permissionedUserIdForUpdateSecret: string | null,
-  //   permissionedUserIdForDeleteSecret: string | null,
-  //   permissionedUserIdForComputeSecret: string | null,
-  // ) {
-  //   if (programId) {
-  //     const partyName = parties[0];
-  //     await storeSecretsInteger(
-  //       nillion,
-  //       nillionClient,
-  //       [{ name: secretName, value: secretValue }],
-  //       programId,
-  //       partyName,
-  //       permissionedUserIdForRetrieveSecret ? [permissionedUserIdForRetrieveSecret] : [],
-  //       permissionedUserIdForUpdateSecret ? [permissionedUserIdForUpdateSecret] : [],
-  //       permissionedUserIdForDeleteSecret ? [permissionedUserIdForDeleteSecret] : [],
-  //       permissionedUserIdForComputeSecret ? [permissionedUserIdForComputeSecret] : [],
-  //     ).then(async (store_id: string) => {
-  //       console.log("Secret stored at store_id:", store_id);
-  //       setStoredSecretsNameToStoreId(prevSecrets => ({
-  //         ...prevSecrets,
-  //         [secretName]: store_id,
-  //       }));
-  //     });
-  //   }
-  // }
-
   // // compute on secrets
   // async function handleCompute() {
   //   if (programId) {
@@ -221,15 +197,21 @@ const Hangman: NextPage = () => {
       setGameScore({
         ...gameScore,
         numCorrect: gameScore.numCorrect + 1,
-        numAttempts: gameScore.numAttempts + 1,
         validStmtCodes: [...gameScore.validStmtCodes, code],
       });
     } else {
-      setGameScore({
-        ...gameScore,
-        numAttempts: gameScore.numAttempts + 1,
-        validStmtCodes: [...gameScore.validStmtCodes],
-      });
+      if (gameScore.numFails < 4) {
+        setGameScore({
+          ...gameScore,
+          numFails: gameScore.numFails + 1,
+          validStmtCodes: [...gameScore.validStmtCodes],
+        });
+      } else {
+        setGameScore({
+          ...gameScore,
+          gameResult: GameResult.lose,
+        });
+      }
     }
 
     // update the game config with the player input store id
@@ -238,6 +220,37 @@ const Hangman: NextPage = () => {
     setGameConfig({ ...gameConfig, secrets: secretsToStoreIds });
 
     // Set game loading state
+    setGameIsLoading({ status: false, text: "" });
+  }
+
+  async function handleWordGuess(word: string) {
+    // Retrieve secret word
+    const storeId = gameConfig?.secrets.find(secret => Object.keys(secret)[0].includes("secret_word"));
+    if (!storeId) {
+      setGameIsLoading({ status: true, text: "Error, please refresh page and try again!" });
+      return;
+    }
+    const value = await retrieveSecretBlob(nillionClient, Object.values(storeId)[0], "secret_word");
+    console.log("secret word: ", value);
+    if (value !== word) {
+      if (gameScore.numFails < 4) {
+        setGameScore({
+          ...gameScore,
+          numFails: gameScore.numFails + 1,
+        });
+      } else {
+        setGameScore({
+          ...gameScore,
+          gameResult: GameResult.lose,
+        });
+      }
+    } else if (value === word) {
+      setGameScore({
+        ...gameScore,
+        gameResult: GameResult.win,
+      });
+    }
+
     setGameIsLoading({ status: false, text: "" });
   }
 
@@ -304,7 +317,7 @@ const Hangman: NextPage = () => {
               <NillionOnboarding />
             ) : (
               <div>
-                <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
+                {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
                   <h1 className="text-xl">Step 1: Store a Nada program</h1>
                   {programId ? (
                     <div>
@@ -318,7 +331,7 @@ const Hangman: NextPage = () => {
                   )}
 
                   <CodeSnippet program_name={programName} />
-                </div>
+                </div> */}
 
                 <button className="btn btn-primary mt-4" onClick={() => handleRetrieveSecrets()}>
                   🎮 Retrieve secret
@@ -329,6 +342,7 @@ const Hangman: NextPage = () => {
                 <GameUI
                   gameIsLoading={gameIsLoading}
                   setGameIsLoading={setGameIsLoading}
+                  handleWordGuess={handleWordGuess}
                   checkSelectedStatement={checkSelectedStatement}
                   handleGameStart={handleGameStart}
                   gameScore={gameScore}

@@ -8,27 +8,27 @@
         {
           "code": "100",
           "text": "employs a technique to visualize bone structures",
-          "secretLetters": "b"
+          "secretLetter": "b"
         },
         {
           "code": "101",
           "text": "captured its first image of a hand",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "102",
           "text": "was discovered by Wilhelm Conrad Roentgen",
-          "secretLetters": "n"
+          "secretLetter": "n"
         },
         {
           "code": "103",
           "text": "is often the first test done for injuries involving fractures",
-          "secretLetters": "e"
+          "secretLetter": "e"
         },
         {
           "code": "104",
           "text": "used in dental assessments to detect cavities and root problems",
-          "secretLetters": "o"
+          "secretLetter": "o"
         }
       ],
       "secret": "bones",
@@ -42,27 +42,27 @@
         {
           "code": "105",
           "text": "uses high-frequency sound waves to produce images of the body",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "106",
           "text": "is used to monitor fetal development",
-          "secretLetters": "n"
+          "secretLetter": "d"
         },
         {
           "code": "107",
           "text": "safe for imaging soft tissues compared to other imaging modalities",
-          "secretLetters": "o"
+          "secretLetter": "o"
         },
         {
           "code": "108",
           "text": "does not use ionizing radiation",
-          "secretLetters": "u"
+          "secretLetter": "u"
         },
         {
           "code": "109",
           "text": "ideal for real-time imaging results",
-          "secretLetters": "n"
+          "secretLetter": "n"
         }
       ],
       "secret": "sound",
@@ -76,27 +76,27 @@
         {
           "code": "110",
           "text": "uses a magnetic field and radio waves to produce images of the body",
-          "secretLetters": "f"
+          "secretLetter": "f"
         },
         {
           "code": "111",
           "text": "provides high-resolution images of soft tissues",
-          "secretLetters": "l"
+          "secretLetter": "l"
         },
         {
           "code": "112",
           "text": "useful for diagnosing brain disorders",
-          "secretLetters": "e"
+          "secretLetter": "e"
         },
         {
           "code": "113",
           "text": "is not recommended for patients with metal implants",
-          "secretLetters": "d"
+          "secretLetter": "d"
         },
         {
           "code": "114",
           "text": "ideal for imaging joint structures and soft tissue injuries",
-          "secretLetters": "i"
+          "secretLetter": "i"
         }
       ],
       "secret": "field",
@@ -110,27 +110,27 @@
         {
           "code": "115",
           "text": "uses a technique to produce cross-sectional images of the body",
-          "secretLetters": "c"
+          "secretLetter": "c"
         },
         {
           "code": "116",
           "text": "provides detailed images of bones and soft tissues",
-          "secretLetters": "i"
+          "secretLetter": "i"
         },
         {
           "code": "117",
           "text": "involves a rotating x-ray machine with speeds up to 0.28 seconds per rotation",
-          "secretLetters": "l"
+          "secretLetter": "l"
         },
         {
           "code": "118",
           "text": "is often used in emergency situations for quick diagnosis",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "119",
           "text": "can be used to guide biopsies and other procedures",
-          "secretLetters": "e"
+          "secretLetter": "e"
         }
       ],
       "secret": "slice",
@@ -144,27 +144,27 @@
         {
           "code": "120",
           "text": "is a chronic condition that affects glucose metabolism",
-          "secretLetters": "u"
+          "secretLetter": "u"
         },
         {
           "code": "121",
           "text": "Type 1 diabetes is characterized by the absence of insulin production",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "122",
           "text": "Type 2 diabetes often results from body's resistance to insulin",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "123",
           "text": "can lead to serious complications like heart disease, kidney damage, and vision loss",
-          "secretLetters": "g"
+          "secretLetter": "g"
         },
         {
           "code": "124",
           "text": "is manageable with diet, exercise, and medication",
-          "secretLetters": "a"
+          "secretLetter": "a"
         }
       ],
       "secret": "sugar",
@@ -178,27 +178,27 @@
         {
           "code": "125",
           "text": "is a progressive brain disorder that slowly destroys memory and thinking skills",
-          "secretLetters": "b"
+          "secretLetter": "b"
         },
         {
           "code": "126",
           "text": "is the most common cause of dementia among older adults",
-          "secretLetters": "a"
+          "secretLetter": "a"
         },
         {
           "code": "127",
           "text": "has no current cure, but treatments for symptoms are available",
-          "secretLetters": "i"
+          "secretLetter": "i"
         },
         {
           "code": "128",
           "text": "risk factors include age, genetics, and certain lifestyle factors",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "129",
           "text": "early symptoms are often mistaken for normal aging",
-          "secretLetters": "n"
+          "secretLetter": "n"
         }
       ],
       "secret": "brain",
@@ -212,27 +212,27 @@
         {
           "code": "130",
           "text": "is the most common type of heart disease",
-          "secretLetters": "e"
+          "secretLetter": "e"
         },
         {
           "code": "131",
           "text": "occurs when the organ supplying blood to the heart become hardened and narrowed",
-          "secretLetters": "h"
+          "secretLetter": "h"
         },
         {
           "code": "132",
           "text": "can lead to chest pain, heart attack, or stroke",
-          "secretLetters": "a"
+          "secretLetter": "a"
         },
         {
           "code": "133",
           "text": "risk factors include smoking, high cholesterol, and high blood pressure",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "134",
           "text": "treatment often involves lifestyle changes, medications, and sometimes surgical procedures",
-          "secretLetters": "t"
+          "secretLetter": "t"
         }
       ],
       "secret": "heart",
@@ -246,27 +246,27 @@
         {
           "code": "135",
           "text": "is a chronic condition that inflames and narrows the airways",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "136",
           "text": "symptoms include wheezing, shortness of breath, chest tightness, and coughing",
-          "secretLetters": "u"
+          "secretLetter": "u"
         },
         {
           "code": "137",
           "text": "triggers can include pollen, dust mites, smoke, and cold air",
-          "secretLetters": "l"
+          "secretLetter": "l"
         },
         {
           "code": "138",
           "text": "management involves avoiding triggers and using prescribed inhalers",
-          "secretLetters": "g"
+          "secretLetter": "g"
         },
         {
           "code": "139",
           "text": "can vary in intensity and may require emergency treatment",
-          "secretLetters": "n"
+          "secretLetter": "n"
         }
       ],
       "secret": "lungs",
@@ -280,27 +280,27 @@
         {
           "code": "140",
           "text": "is a type of cancer that forms in the cells of the breast",
-          "secretLetters": "b"
+          "secretLetter": "b"
         },
         {
           "code": "141",
           "text": "is the most common type of cancer overall with an estimated 310,720 women and 2,790 men will be diagnosed with breast cancer in 2024",
-          "secretLetters": "v"
+          "secretLetter": "v"
         },
         {
           "code": "142",
           "text": "genetic factors like BRCA1 and BRCA2 mutations increase risk",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "143",
           "text": "mammograms are used for early detection",
-          "secretLetters": "a"
+          "secretLetter": "a"
         },
         {
           "code": "144",
           "text": "a lumpectomy or mastectomy may be recommended for treatment",
-          "secretLetters": "e"
+          "secretLetter": "e"
         }
       ],
       "secret": "brave",
@@ -314,27 +314,27 @@
         {
           "code": "150",
           "text": "stands for Health Insurance Portability and Accountability Act",
-          "secretLetters": "i"
+          "secretLetter": "i"
         },
         {
           "code": "151",
           "text": "protects the privacy of patient health information",
-          "secretLetters": "a"
+          "secretLetter": "a"
         },
         {
           "code": "152",
           "text": "requires healthcare providers to secure patient records",
-          "secretLetters": "u"
+          "secretLetter": "u"
         },
         {
           "code": "153",
           "text": "includes provisions to prevent healthcare fraud",
-          "secretLetters": "t"
+          "secretLetter": "t"
         },
         {
           "code": "154",
           "text": "patients can request copies of their health records under this act",
-          "secretLetters": "d"
+          "secretLetter": "d"
         }
       ],
       "secret": "audit",
@@ -348,27 +348,27 @@
         {
           "code": "155",
           "text": "is a standard used for storing, transmitting, and managing medical imaging information and related data",
-          "secretLetters": "n"
+          "secretLetter": "n"
         },
         {
           "code": "156",
           "text": "enables the integration of medical imaging devices such as scanners, servers, workstations, and network hardware from multiple manufacturers",
-          "secretLetters": "u"
+          "secretLetter": "u"
         },
         {
           "code": "157",
           "text": "facilitates the exchange of information between healthcare systems to ensure universal access and compatibility",
-          "secretLetters": "y"
+          "secretLetter": "y"
         },
         {
           "code": "158",
           "text": "supports a wide range of imaging applications, including radiology, cardiology, and other image-intensive fields",
-          "secretLetters": "i"
+          "secretLetter": "i"
         },
         {
           "code": "159",
           "text": "allows for enhanced diagnostic capabilities by providing rich metadata and a standardized imaging format that improves image analysis",
-          "secretLetters": "f"
+          "secretLetter": "f"
         }
       ],
       "secret": "unify",
@@ -382,27 +382,27 @@
         {
           "code": "160",
           "text": "stands for Electronic Medical Record",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "161",
           "text": "digitally records patient’s medical history",
-          "secretLetters": "c"
+          "secretLetter": "c"
         },
         {
           "code": "162",
           "text": "used primarily within one healthcare practice",
-          "secretLetters": "t"
+          "secretLetter": "t"
         },
         {
           "code": "163",
           "text": "can be shared electronically with other healthcare providers with proper consent",
-          "secretLetters": "a"
+          "secretLetter": "a"
         },
         {
           "code": "164",
           "text": "enhances efficiency of patient care management",
-          "secretLetters": "h"
+          "secretLetter": "h"
         }
       ],
       "secret": "chart",
@@ -416,27 +416,27 @@
         {
           "code": "165",
           "text": "enhances privacy rights by giving individuals control over their personal data collected by organizations",
-          "secretLetters": "h"
+          "secretLetter": "h"
         },
         {
           "code": "166",
           "text": "requires organizations to obtain explicit consent from individuals before processing their personal data",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "167",
           "text": "mandates prompt notification of data breaches to authorities and affected individuals",
-          "secretLetters": "l"
+          "secretLetter": "l"
         },
         {
           "code": "168",
           "text": "implements 'right to access' allowing individuals to request a copy of their personal data stored by an organization",
-          "secretLetters": "d"
+          "secretLetter": "d"
         },
         {
           "code": "169",
           "text": "supports the 'right to be forgotten,' enabling individuals to request the deletion of their data under specific conditions",
-          "secretLetters": "i"
+          "secretLetter": "i"
         }
       ],
       "secret": "shield",
@@ -450,27 +450,27 @@
         {
           "code": "170",
           "text": "is a standards framework designed to enable the efficient exchange of electronic health records",
-          "secretLetters": "e"
+          "secretLetter": "e"
         },
         {
           "code": "171",
           "text": "utilizes modern web technologies and protocols, such as RESTful APIs, to facilitate real-time data sharing",
-          "secretLetters": "s"
+          "secretLetter": "s"
         },
         {
           "code": "172",
           "text": "supports interoperability between legacy healthcare systems and newer applications, enhancing system connectivity",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "173",
           "text": "employs a modular architecture with resources that can be combined to solve clinical and administrative problems efficiently",
-          "secretLetters": "u"
+          "secretLetter": "u"
         },
         {
           "code": "174",
           "text": "promotes seamless patient data integration across different platforms and devices, ensuring more comprehensive patient care",
-          "secretLetters": "l"
+          "secretLetter": "l"
         }
       ],
       "secret": "rules",
@@ -484,27 +484,27 @@
         {
           "code": "175",
           "text": "utilizes blockchain technology to ensure data is immutable and tamper-proof",
-          "secretLetters": "y"
+          "secretLetter": "y"
         },
         {
           "code": "176",
           "text": "encrypts patient data to prevent unauthorized access",
-          "secretLetters": "t"
+          "secretLetter": "t"
         },
         {
           "code": "177",
           "text": "allows secure sharing of medical records between authorized parties",
-          "secretLetters": "c"
+          "secretLetter": "c"
         },
         {
           "code": "178",
           "text": "reduces the risk of data breaches compared to traditional data storage systems",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "179",
           "text": "supports compliance with data protection regulations",
-          "secretLetters": "p"
+          "secretLetter": "p"
         }
       ],
       "secret": "crypt",
@@ -518,27 +518,27 @@
         {
           "code": "180",
           "text": "enables patients to own and control their medical records",
-          "secretLetters": "w"
+          "secretLetter": "w"
         },
         {
           "code": "181",
           "text": "patients can grant or revoke access to their health data at any time",
-          "secretLetters": "n"
+          "secretLetter": "n"
         },
         {
           "code": "182",
           "text": "enables patient consent management through smart contracts",
-          "secretLetters": "r"
+          "secretLetter": "r"
         },
         {
           "code": "183",
           "text": "empowers patients by giving them visibility into who accesses their information",
-          "secretLetters": "o"
+          "secretLetter": "o"
         },
         {
           "code": "184",
           "text": "promotes patient privacy and autonomy",
-          "secretLetters": "e"
+          "secretLetter": "e"
         }
       ],
       "secret": "owner",
@@ -552,27 +552,27 @@
         {
           "code": "185",
           "text": "blockchain can securely manage consent forms and trial data",
-          "secretLetters": "t"
+          "secretLetter": "t"
         },
         {
           "code": "186",
           "text": "facilitates real-time data collection and sharing among trial participants",
-          "secretLetters": "o"
+          "secretLetter": "o"
         },
         {
           "code": "187",
           "text": "enhances the reliability and validity of trial results",
-          "secretLetters": "n"
+          "secretLetter": "n"
         },
         {
           "code": "188",
           "text": "allows for more efficient recruitment and retention of trial participants",
-          "secretLetters": "k"
+          "secretLetter": "k"
         },
         {
           "code": "189",
           "text": "reduces administrative costs and errors associated with clinical trials",
-          "secretLetters": "e"
+          "secretLetter": "e"
         }
       ],
       "secret": "token",
@@ -586,27 +586,27 @@
         {
           "code": "190",
           "text": "smart contracts can automate billing processes, reducing delays",
-          "secretLetters": "c"
+          "secretLetter": "c"
         },
         {
           "code": "191",
           "text": "ensures transparency and accuracy transactions",
-          "secretLetters": "i"
+          "secretLetter": "i"
         },
         {
           "code": "192",
           "text": "reduces fraud and disputes in billing",
-          "secretLetters": "a"
+          "secretLetter": "a"
         },
         {
           "code": "193",
           "text": "decreases administrative costs associated with manual billing systems",
-          "secretLetters": "n"
+          "secretLetter": "n"
         },
         {
           "code": "194",
           "text": "enhances patient satisfaction with quicker billing resolution",
-          "secretLetters": "h"
+          "secretLetter": "h"
         }
       ],
       "secret": "chain",
@@ -620,27 +620,27 @@
         {
           "code": "195",
           "text": "facilitates seamless exchange of health information across borders",
-          "secretLetters": "d"
+          "secretLetter": "d"
         },
         {
           "code": "196",
           "text": "supports global health monitoring and response efforts",
-          "secretLetters": "e"
+          "secretLetter": "e"
         },
         {
           "code": "197",
           "text": "enhances collaborative research and healthcare delivery",
-          "secretLetters": "n"
+          "secretLetter": "n"
         },
         {
           "code": "198",
           "text": "overcomes traditional barriers of data silos and incompatible systems",
-          "secretLetters": "o"
+          "secretLetter": "o"
         },
         {
           "code": "199",
           "text": "promotes a unified standard for health data that aids in worldwide healthcare improvement",
-          "secretLetters": "s"
+          "secretLetter": "s"
         }
       ],
       "secret": "nodes",

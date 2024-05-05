@@ -1,9 +1,9 @@
 import { useState } from "react";
 import programData from "../../app/data/healthcare-info.json";
 import Directions from "./Directions";
+import Scoreboard from "./Scoreboard";
 import SelectCategory from "./SelectCategory";
 import SelectStatements from "./SelectStatements";
-import WordReveal from "./WordReveal";
 import { getRandomSet, randomFillerStatements, shuffleStatements, splitStatements } from "./utils";
 import { GameScore, StringObject } from "~~/app/nillion-hangman/page";
 
@@ -18,7 +18,7 @@ export enum StmtStatus {
 export interface Statements {
   code: string;
   text: string;
-  secretLetters: string;
+  secretLetter: string;
   status: StmtStatus;
 }
 
@@ -34,6 +34,7 @@ export interface HealthCareInfo {
 interface GameUIProps {
   gameIsLoading: { status: boolean; text: string };
   setGameIsLoading: React.Dispatch<React.SetStateAction<{ status: boolean; text: string }>>;
+  handleWordGuess: (word: string) => void;
   checkSelectedStatement: (selectedStatement: string) => void;
   handleGameStart: (secrets: { secretIntegers: StringObject[]; secretBlobs: StringObject[] }) => void;
   gameScore: GameScore;
@@ -42,6 +43,7 @@ interface GameUIProps {
 const GameUI = ({
   gameIsLoading,
   setGameIsLoading,
+  handleWordGuess,
   checkSelectedStatement,
   handleGameStart,
   gameScore,
@@ -88,10 +90,6 @@ const GameUI = ({
     ? selectedCategorySet?.name.charAt(0).toUpperCase() + selectedCategorySet?.name.slice(1)
     : "";
 
-  const handleSubmit = () => {
-    console.log("submitted");
-  };
-
   const handleSelectStatement = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const { id } = e.currentTarget;
     // Set game loading state
@@ -130,7 +128,12 @@ const GameUI = ({
           {!selectedCategory ? (
             <SelectCategory categories={GAME_CATEGORIES} setTopicAndInitGame={setTopicAndInitGame} />
           ) : (
-            <WordReveal statements={statements} gameScore={gameScore} />
+            <Scoreboard
+              gameIsLoading={gameIsLoading}
+              statements={statements}
+              gameScore={gameScore}
+              handleWordGuess={handleWordGuess}
+            />
           )}
         </div>
       </div>
@@ -139,6 +142,7 @@ const GameUI = ({
       {selectedCategory ? (
         <SelectStatements
           gameIsLoading={gameIsLoading}
+          gameScore={gameScore}
           selectedCategory={selectedCategory}
           setName={setName}
           statements={statements}
