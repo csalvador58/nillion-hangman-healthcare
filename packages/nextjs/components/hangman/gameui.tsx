@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import programData from "../../app/data/healthcare-info.json";
 import Directions from "./Directions";
 import SelectCategory from "./SelectCategory";
 import SelectStatements from "./SelectStatements";
 import WordReveal from "./WordReveal";
-import { getRandomSet, randomFillerStatements, shuffleStatements } from "./utils";
-import { StringObject } from "~~/app/nillion-hangman/page";
+import { getRandomSet, randomFillerStatements, shuffleStatements, splitStatements } from "./utils";
+import { GameScore, StringObject } from "~~/app/nillion-hangman/page";
 
 const GAME_INFO = programData.list as unknown as HealthCareInfo[];
 const GAME_CATEGORIES = [...new Set(GAME_INFO.map(item => item.category))];
@@ -32,46 +32,56 @@ export interface HealthCareInfo {
 }
 
 interface GameUIProps {
+  gameIsLoading: { status: boolean; text: string };
+  setGameIsLoading: React.Dispatch<React.SetStateAction<{ status: boolean; text: string }>>;
   checkSelectedStatement: (selectedStatement: string) => void;
-  handleGameStart: (secrets: StringObject[]) => void;
+  handleGameStart: (secrets: { secretIntegers: StringObject[]; secretBlobs: StringObject[] }) => void;
+  gameScore: GameScore;
 }
 
-const GameUI = ({ checkSelectedStatement, handleGameStart }: GameUIProps) => {
+const GameUI = ({
+  gameIsLoading,
+  setGameIsLoading,
+  checkSelectedStatement,
+  handleGameStart,
+  gameScore,
+}: GameUIProps) => {
   const [selectedCategorySet, setSelectedCategorySet] = useState<HealthCareInfo>();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [statements, setStatements] = useState<HealthCareInfo["statements"]>([]);
 
-  const setTopicAndInitGame = (selectedCategory: string) => {
-    let selectedCategorySet: HealthCareInfo[] = [];
-    let falseStatements: HealthCareInfo["statements"] = [];
-    let secretCodeArray: StringObject[] = [];
+  const setTopicAndInitGame = async (topic: string) => {
+    // Set game loading state
+    setGameIsLoading({ status: true, text: "Setting up game..." });
 
-    // Set the selected category
-    setSelectedCategory(selectedCategory);
+    // Split game statements into selected and unselected categories
+    const { selectedStmts, unselectedStmts } = splitStatements(GAME_INFO, topic);
 
-    // Retrieve healthcare info related to the selected category
-    GAME_INFO.filter(item => {
-      if (selectedCategory.toLowerCase() === item.category) {
-        selectedCategorySet = [...selectedCategorySet, item];
-      } else {
-        falseStatements = [...falseStatements, ...item.statements];
-      }
-    });
-    // Get a random set of statements from the selected category
-    const randomSet = getRandomSet(selectedCategorySet);
-    if (!randomSet) return;
-    secretCodeArray = randomSet.statements.map((statement, index) => ({ [`stmt_code_${index+1}`]: statement.code }));
+    // Randomly select a set of statements for in-game play
+    const randomSet = getRandomSet(selectedStmts);
+    if (!randomSet) throw new Error("No random set found");
+
+    // Pick filler statements for the game
+    const fillerStatements = randomFillerStatements(unselectedStmts, 5);
+
+    // Create an array of correct and filler statements
+    const shuffledStatements = shuffleStatements([...randomSet.statements, ...fillerStatements]);
+
+    // Set the selected category and set
+    setStatements(shuffledStatements);
+    setSelectedCategory(topic);
     setSelectedCategorySet(randomSet);
 
-    // Setup false statements to be used as fillers in the game
-    const fillerStatements = randomFillerStatements(falseStatements, 5);
-
-    // Create an array of true and filler statements
-    const shuffledStatements = shuffleStatements([...randomSet.statements, ...fillerStatements]);
-    setStatements(shuffledStatements);
-
     // Init game by storing program and secrets
-    handleGameStart(secretCodeArray);
+    const secretCodes = randomSet.statements.map((statement, index) => ({
+      [`stmt_code_${index + 1}`]: statement.code,
+    }));
+
+    const secretWord = [{ ["secret_word"]: randomSet.secret }];
+    const secrets = { secretIntegers: [...secretCodes], secretBlobs: [...secretWord] };
+    handleGameStart(secrets);
+
+    // Loading state will be set to false in the handleGameStart function
   };
 
   const setName = selectedCategorySet
@@ -79,11 +89,15 @@ const GameUI = ({ checkSelectedStatement, handleGameStart }: GameUIProps) => {
     : "";
 
   const handleSubmit = () => {
-    console.log("submitted");11
+    console.log("submitted");
   };
 
-  const handleSelectStatement = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSelectStatement = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const { id } = e.currentTarget;
+    // Set game loading state
+    setGameIsLoading({ status: true, text: "Processing selection..." });
+
+    // Update the status of the selected statement
     const updatedStatements = statements.map(item => {
       if (item.code === id) {
         item.status = StmtStatus.selected;
@@ -91,7 +105,11 @@ const GameUI = ({ checkSelectedStatement, handleGameStart }: GameUIProps) => {
       return item;
     });
     setStatements(updatedStatements);
+
+    // Check if the selected statement is correct
     checkSelectedStatement(id);
+
+    // Loading state will be set to false in the checkSelectedStatement function
   };
 
   return (
@@ -112,7 +130,7 @@ const GameUI = ({ checkSelectedStatement, handleGameStart }: GameUIProps) => {
           {!selectedCategory ? (
             <SelectCategory categories={GAME_CATEGORIES} setTopicAndInitGame={setTopicAndInitGame} />
           ) : (
-            <WordReveal />
+            <WordReveal statements={statements} gameScore={gameScore} />
           )}
         </div>
       </div>
@@ -120,6 +138,7 @@ const GameUI = ({ checkSelectedStatement, handleGameStart }: GameUIProps) => {
       {/* Player input section */}
       {selectedCategory ? (
         <SelectStatements
+          gameIsLoading={gameIsLoading}
           selectedCategory={selectedCategory}
           setName={setName}
           statements={statements}

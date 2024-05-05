@@ -14,10 +14,17 @@ import SecretForm from "~~/components/nillion/SecretForm";
 import { Address } from "~~/components/scaffold-eth";
 import { compute } from "~~/utils/nillion/compute";
 import { getUserKeyFromSnap } from "~~/utils/nillion/getUserKeyFromSnap";
+import { retrieveSecretBlob } from "~~/utils/nillion/retrieveSecretBlob";
 import { retrieveSecretCommand } from "~~/utils/nillion/retrieveSecretCommand";
 import { retrieveSecretInteger } from "~~/utils/nillion/retrieveSecretInteger";
 import { storeProgram } from "~~/utils/nillion/storeProgram";
-import { storeSecretsInteger } from "~~/utils/nillion/storeSecretsInteger";
+import { JsInput, storeSecretsInteger } from "~~/utils/nillion/storeSecretsInteger";
+
+export interface GameScore {
+  numCorrect: number;
+  numAttempts: number;
+  validStmtCodes: string[];
+}
 
 export interface StringObject {
   [key: string]: string;
@@ -35,6 +42,12 @@ const Hangman: NextPage = () => {
   const [programId, setProgramId] = useState<string | null>(null);
   // const [computeResult, setComputeResult] = useState<string | null>(null);
   const [gameConfig, setGameConfig] = useState<GameConfig>();
+  const [gameScore, setGameScore] = useState<GameScore>({
+    numCorrect: 0,
+    numAttempts: 0,
+    validStmtCodes: [],
+  });
+  const [gameIsLoading, setGameIsLoading] = useState<{ status: boolean; text: string }>({ status: false, text: "" });
 
   // const [storedSecretsNameToStoreId, setStoredSecretsNameToStoreId] = useState<StringObject>({
   //   input_blob: null,
@@ -60,12 +73,17 @@ const Hangman: NextPage = () => {
   //     alert(`${secret_name} is ${value}`);
   //   }
   // }
-  async function handleRetrieveInt() {
+  async function handleRetrieveSecrets() {
     if (gameConfig) {
       for (const secret of gameConfig.secrets) {
         const [secret_name, store_id] = Object.entries(secret)[0];
-        const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
-        alert(`${secret_name} is ${value}`);
+        if (secret_name.includes("code")) {
+          const value = await retrieveSecretInteger(nillionClient, store_id, secret_name);
+          alert(`${secret_name} is ${value}`);
+        } else {
+          const value = await retrieveSecretBlob(nillionClient, store_id, secret_name);
+          alert(`${secret_name} is ${value}`);
+        }
       }
     }
   }
@@ -146,24 +164,81 @@ const Hangman: NextPage = () => {
   async function handleCompute() {
     console.log("computing");
     if (!gameConfig) return;
-    const storeIds = gameConfig.secrets.map(secret => Object.values(secret)[0]);
+    const storeIds = gameConfig.secrets
+      .filter(secret => Object.keys(secret).includes("code"))
+      .map(secret => Object.values(secret)[0]);
+    console.log("storeIds: ", storeIds);
     const result = await compute(nillion, nillionClient, storeIds, gameConfig.programId, outputs);
     console.log("compute result: ", result);
+    return result;
   }
 
-  async function handleGameStart(gameSecrets: StringObject[]) {
-    console.log("initializing game and secrets");
+  async function handleGameStart(secrets: { secretIntegers: StringObject[]; secretBlobs: StringObject[] }) {
+    // Set game loading state
+    setGameIsLoading({ status: true, text: "Loading game and storing secrets..." });
 
     if (userKey) {
       const partyName = parties[0];
-      const config = await initGameAndSecrets(nillion, nillionClient, programName, partyName, gameSecrets);
+      const config = await initGameAndSecrets(nillion, nillionClient, programName, partyName, secrets);
       console.log("game config", config);
       setGameConfig(config);
+      // Set game loading state
     }
+    setGameIsLoading({ status: false, text: "" });
   }
 
   async function checkSelectedStatement(code: string) {
-    console.log("selected statement code: " + code);
+    if (!gameConfig) {
+      setGameIsLoading({ status: true, text: "Error, please refresh page and try again!" });
+      return;
+    }
+
+    setGameIsLoading({ status: true, text: "Processing selection..." });
+    // store the selected statement code as player secret input
+    const partyName = parties[0];
+    const playerInputToStoreId = await storeSecretsInteger(
+      nillion,
+      nillionClient,
+      [{ name: "player_input", value: code.toString() }] as JsInput[],
+      gameConfig.programId,
+      partyName,
+    );
+
+    // Filter storeIds for the selected statement codes
+    const secretCodesToStoreIds = gameConfig.secrets
+      .filter(secret => Object.keys(secret)[0].includes("code"))
+      .map(secret => Object.values(secret)[0]);
+
+    // Combine storeIds for compute
+    const storeIdsToCompute = [...secretCodesToStoreIds, playerInputToStoreId];
+
+    // compute on secrets
+    const results = await compute(nillion, nillionClient, storeIdsToCompute, gameConfig.programId, outputs);
+    console.log("compute result: ", results);
+
+    // Check if player input was correct and update scoreboard
+    if (results.some(item => item === "0")) {
+      setGameScore({
+        ...gameScore,
+        numCorrect: gameScore.numCorrect + 1,
+        numAttempts: gameScore.numAttempts + 1,
+        validStmtCodes: [...gameScore.validStmtCodes, code],
+      });
+    } else {
+      setGameScore({
+        ...gameScore,
+        numAttempts: gameScore.numAttempts + 1,
+        validStmtCodes: [...gameScore.validStmtCodes],
+      });
+    }
+
+    // update the game config with the player input store id
+    const secretsToStoreIds = gameConfig.secrets;
+    secretsToStoreIds.push({ player_input: playerInputToStoreId });
+    setGameConfig({ ...gameConfig, secrets: secretsToStoreIds });
+
+    // Set game loading state
+    setGameIsLoading({ status: false, text: "" });
   }
 
   return (
@@ -245,13 +320,19 @@ const Hangman: NextPage = () => {
                   <CodeSnippet program_name={programName} />
                 </div>
 
-                <button className="btn btn-primary mt-4" onClick={() => handleRetrieveInt()}>
+                <button className="btn btn-primary mt-4" onClick={() => handleRetrieveSecrets()}>
                   🎮 Retrieve secret
                 </button>
                 <button className="btn btn-primary mt-4" onClick={() => handleCompute()}>
                   🧮 Compute
                 </button>
-                <GameUI checkSelectedStatement={checkSelectedStatement} handleGameStart={handleGameStart} />
+                <GameUI
+                  gameIsLoading={gameIsLoading}
+                  setGameIsLoading={setGameIsLoading}
+                  checkSelectedStatement={checkSelectedStatement}
+                  handleGameStart={handleGameStart}
+                  gameScore={gameScore}
+                />
               </div>
             )}
           </div>

@@ -1,5 +1,6 @@
 import { StringObject } from "~~/app/nillion-hangman/page";
 import { storeProgram } from "~~/utils/nillion/storeProgram";
+import { storeSecretsBlob } from "~~/utils/nillion/storeSecretsBlob";
 import { JsInput, storeSecretsInteger } from "~~/utils/nillion/storeSecretsInteger";
 
 export interface GameConfig {
@@ -25,7 +26,7 @@ export async function initGameAndSecrets(
   nillionClient: any,
   programName: string,
   partyName: string,
-  gameSecrets: StringObject[],
+  gameSecrets: { secretIntegers: StringObject[]; secretBlobs: StringObject[] },
 ): Promise<GameConfig> {
   // Init game config
   let config: GameConfig = {
@@ -43,7 +44,6 @@ export async function initGameAndSecrets(
     const programUserId = nillionClient.user_id;
     console.log("programUserId: ", programUserId);
     console.log("gameSecrets: ", gameSecrets);
-    console.log("Object.values(gameSecrets[0])[0]: ", Object.values(gameSecrets[0])[0]);
 
     // store the program
     const programId = await storeProgram(nillionClient, programName);
@@ -55,8 +55,8 @@ export async function initGameAndSecrets(
     // PERMISSIONED_USERID.delete = userKey;
     // PERMISSIONED_USERID.compute = userKey;
 
-    // store game secrets
-    for (const secret of gameSecrets) {
+    // store game secret integers
+    for (const secret of gameSecrets.secretIntegers) {
       // Object entries
       const [name, value] = Object.entries(secret)[0];
       console.log("name: ", name, "value: ", value);
@@ -75,19 +75,22 @@ export async function initGameAndSecrets(
       config.secrets.push({ [name]: storeId });
     }
 
-    const storeId = await storeSecretsInteger(
-      nillion,
-      nillionClient,
-      [{ name: "player_input", value: Object.values(gameSecrets[0])[0] }] as JsInput[],
-      programId,
-      partyName,
-      PERMISSIONED_USERID.retrieve ? [PERMISSIONED_USERID.retrieve] : [],
-      PERMISSIONED_USERID.update ? [PERMISSIONED_USERID.update] : [],
-      PERMISSIONED_USERID.delete ? [PERMISSIONED_USERID.delete] : [],
-      PERMISSIONED_USERID.compute ? [PERMISSIONED_USERID.compute] : [],
-    );
-    console.log("storeId: ", storeId);
-    config.secrets.push({ ["player_input"]: storeId });
+    // store game secret blobs
+    for (const secret of gameSecrets.secretBlobs) {
+      // Object entries
+      const [name, value] = Object.entries(secret)[0];
+      console.log("name: ", name, "value: ", value);
+      const storeId = await storeSecretsBlob(
+        nillion,
+        nillionClient,
+        [{ name: name, value: value }] as JsInput[],
+        PERMISSIONED_USERID.retrieve ? [PERMISSIONED_USERID.retrieve] : [],
+        PERMISSIONED_USERID.update ? [PERMISSIONED_USERID.update] : [],
+        PERMISSIONED_USERID.delete ? [PERMISSIONED_USERID.delete] : [],
+      );
+      console.log("storeId: ", storeId);
+      config.secrets.push({ [name]: storeId });
+    }
 
     config = { ...config, programName, programId, programUserId, nillion, nillionClient };
     return config;

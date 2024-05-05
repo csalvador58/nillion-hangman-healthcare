@@ -1,4 +1,19 @@
-import { HealthCareInfo, StmtStatus } from "../GameUI";
+import { HealthCareInfo, StmtStatus } from "~~/components/hangman/GameUI";
+
+export const splitStatements = (gameInfo: HealthCareInfo[], topic: string) => {
+  const selectedStmts: HealthCareInfo[] = [];
+  const unselectedStmts: HealthCareInfo["statements"] = [];
+
+  gameInfo.forEach(item => {
+    if (topic.toLowerCase() === item.category) {
+      selectedStmts.push(item);
+    } else {
+      unselectedStmts.push(...item.statements);
+    }
+  });
+
+  return { selectedStmts, unselectedStmts };
+};
 
 export const getRandomSet = (arr: HealthCareInfo[]) => {
   // Get unique set names

@@ -1,8 +1,15 @@
 import { useState } from "react";
+import { HealthCareInfo } from "./GameUI";
+import { GameScore } from "~~/app/nillion-hangman/page";
 
 const word = "hlole";
 
-const WordReveal = () => {
+interface WordRevealProps {
+  statements: HealthCareInfo["statements"];
+  gameScore: GameScore;
+}
+
+const WordReveal = ({ statements, gameScore }: WordRevealProps) => {
   const [wordInput, setWordInput] = useState("");
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -14,17 +21,26 @@ const WordReveal = () => {
     setWordInput("");
   };
 
+  const revealedLetters = gameScore.validStmtCodes
+    .map(code => {
+      return statements.find(stmt => stmt.code === code)?.secretLetters ?? "";
+    })
+    .filter(Boolean);
+
   return (
     <div className="flex flex-col justify-center items-center space-y-5">
-      <h2>WordReveal</h2>
+      <h2>Game Scoreboard</h2>
+      <p>{`Failed attempts: ${gameScore.numAttempts - gameScore.numCorrect} / 3`}</p>
       <div>
-        <h3>Revealed Letters</h3>
-        <div className="flex flex-row gap-1">
-          {word.split("").map((letter, index) => (
-            <div key={index} className="bg-neutral-content rounded px-2 py-1 text-sm">
-              {letter}
-            </div>
-          ))}
+        <h3>{`${revealedLetters.length} of 5 Letters Revealed`}</h3>
+        <div className="flex justify-center items-center">
+          <div className="flex flex-row gap-1">
+            {revealedLetters.length > 0 ? (
+              revealedLetters.map((letter, index) => <LetterBox key={index} letter={letter} />)
+            ) : (
+              <span className="text-sm mx-auto">None</span>
+            )}
+          </div>
         </div>
       </div>
       <div>
@@ -51,3 +67,7 @@ const WordReveal = () => {
 };
 
 export default WordReveal;
+
+const LetterBox = ({ letter }: { letter: string }) => (
+  <div className="bg-neutral-content rounded px-2 py-1 text-sm">{letter}</div>
+);
