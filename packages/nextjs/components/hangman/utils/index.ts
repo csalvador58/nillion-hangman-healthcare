@@ -1,5 +1,8 @@
 import { HealthCareInfo, StmtStatus } from "~~/components/hangman/GameUI";
 
+/**
+ * Split in-game statements into selected and unselected categories based on player selected topic.
+ */
 export const splitStatements = (gameInfo: HealthCareInfo[], topic: string) => {
   const selectedStmts: HealthCareInfo[] = [];
   const unselectedStmts: HealthCareInfo["statements"] = [];
@@ -15,6 +18,9 @@ export const splitStatements = (gameInfo: HealthCareInfo[], topic: string) => {
   return { selectedStmts, unselectedStmts };
 };
 
+/**
+ * Randomly select a sub-topic for a set of statements based on the player selected topic.
+ */
 export const getRandomSet = (arr: HealthCareInfo[]) => {
   // Get unique set names
   const uniqueNames = Array.from(new Set(arr.map(item => item.name)));
@@ -25,6 +31,9 @@ export const getRandomSet = (arr: HealthCareInfo[]) => {
   return arr.find(item => item.name === selectedName);
 };
 
+/**
+ * Generate random filler statements to mix with set of statements player will be guessing.
+ */
 export const randomFillerStatements = (
   statements: HealthCareInfo["statements"],
   num: number,
@@ -41,6 +50,9 @@ export const randomFillerStatements = (
   return selectedStatements;
 };
 
+/**
+ * Shuffle statements for the game.
+ */
 export const shuffleStatements = (statements: HealthCareInfo["statements"]): HealthCareInfo["statements"] => {
   const shuffledStatements = [...statements];
   for (let i = shuffledStatements.length - 1; i > 0; i--) {

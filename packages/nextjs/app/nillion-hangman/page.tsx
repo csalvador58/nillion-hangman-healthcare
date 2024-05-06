@@ -2,25 +2,20 @@
 
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
-import { set } from "nprogress";
 import { useAccount } from "wagmi";
 import GameUI from "~~/components/hangman/GameUI";
-import { GameConfig, initGameAndSecrets } from "~~/components/hangman/nillion/initGameAndSecrets";
+import { GameConfig, initGameAndSecrets } from "~~/components/hangman/utils/initGameAndSecrets";
 import CodeSnippet from "~~/components/nillion/CodeSnippet";
 import { CopyString } from "~~/components/nillion/CopyString";
 import { NillionOnboarding } from "~~/components/nillion/NillionOnboarding";
-import RetrieveSecretCommand from "~~/components/nillion/RetrieveSecretCommand";
-import SecretForm from "~~/components/nillion/SecretForm";
-import { Address } from "~~/components/scaffold-eth";
+import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { compute } from "~~/utils/nillion/compute";
 import { getUserKeyFromSnap } from "~~/utils/nillion/getUserKeyFromSnap";
 import { retrieveSecretBlob } from "~~/utils/nillion/retrieveSecretBlob";
-import { retrieveSecretCommand } from "~~/utils/nillion/retrieveSecretCommand";
-import { retrieveSecretInteger } from "~~/utils/nillion/retrieveSecretInteger";
-import { storeProgram } from "~~/utils/nillion/storeProgram";
 import { JsInput, storeSecretsInteger } from "~~/utils/nillion/storeSecretsInteger";
 
 export enum GameResult {
+  waiting = "waiting",
   playing = "playing",
   win = "win",
   lose = "lose",
@@ -45,20 +40,14 @@ const Hangman: NextPage = () => {
   const [nillionClient, setNillionClient] = useState<any>(null);
 
   const [programName] = useState<string>("hangman");
-  const [programId, setProgramId] = useState<string | null>(null);
-  // const [computeResult, setComputeResult] = useState<string | null>(null);
   const [gameConfig, setGameConfig] = useState<GameConfig>();
   const [gameScore, setGameScore] = useState<GameScore>({
     numCorrect: 0,
     numFails: 0,
     validStmtCodes: [],
-    gameResult: GameResult.playing,
+    gameResult: GameResult.waiting,
   });
   const [gameIsLoading, setGameIsLoading] = useState<{ status: boolean; text: string }>({ status: false, text: "" });
-
-  // const [storedSecretsNameToStoreId, setStoredSecretsNameToStoreId] = useState<StringObject>({
-  //   input_blob: null,
-  // });
   const [parties] = useState<string[]>(["player1"]);
   const [outputs] = useState<string[]>(["my_output1", "my_output2", "my_output3", "my_output4", "my_output5"]);
 
@@ -133,7 +122,10 @@ const Hangman: NextPage = () => {
       const config = await initGameAndSecrets(nillion, nillionClient, programName, partyName, secrets);
       console.log("game config", config);
       setGameConfig(config);
-      // Set game loading state
+      setGameScore({
+        ...gameScore,
+        gameResult: GameResult.playing,
+      });
     }
     setGameIsLoading({ status: false, text: "" });
   }
@@ -240,11 +232,11 @@ const Hangman: NextPage = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col pt-10">
+      <div className="flex items-center flex-col pt-10 bg-black h-[100vh]">
         <div className="px-5 flex flex-col">
           <h1 className="text-xl">
-            <span className="block text-4xl font-bold">Falling Man (aka Hangman)</span>
-            {!connectedAddress && <p>Connect your MetaMask Flask wallet</p>}
+            <span className="block text-4xl font-bold mt-10">Falling Man (aka Hangman)</span>
+            {!connectedAddress && <p className="text-center">Connect your MetaMask Flask wallet</p>}
             {connectedAddress && connectedToSnap && !userKey && (
               <a target="_blank" href="https://nillion-snap-site.vercel.app/" rel="noopener noreferrer">
                 <button className="btn btn-sm btn-primary mt-4">
@@ -253,16 +245,13 @@ const Hangman: NextPage = () => {
               </a>
             )}
           </h1>
-
-          {/* {connectedAddress && (
-            <div className="flex justify-center items-center space-x-2">
-              <p className="my-2 font-medium">Connected Wallet Address:</p>
-              <Address address={connectedAddress} />
+          {!connectedAddress && (
+            <div className="flex items-center justify-center">
+              <RainbowKitCustomConnectButton />
             </div>
-          )} */}
-
+          )}
           {connectedAddress && !connectedToSnap && (
-            <button className="btn btn-sm btn-primary mt-4" onClick={handleConnectToSnap}>
+            <button className="btn btn-sm btn-primary" onClick={handleConnectToSnap}>
               Connect to Snap with your Nillion User Key
             </button>
           )}
@@ -271,18 +260,6 @@ const Hangman: NextPage = () => {
             <div>
               {userKey && (
                 <div>
-                  {/* <div className="flex justify-center items-center space-x-2">
-                    <p className="my-2 font-medium">
-                      🤫 Nillion User Key from{" "}
-                      <a target="_blank" href="https://nillion-snap-site.vercel.app/" rel="noopener noreferrer">
-                        MetaMask Flask
-                      </a>
-                      :
-                    </p>
-
-                    <CopyString str={userKey} />
-                  </div> */}
-
                   {userId && (
                     <div className="flex justify-center items-center space-x-2">
                       <p className="my-2 font-medium">Connected as Nillion User ID:</p>
@@ -295,34 +272,17 @@ const Hangman: NextPage = () => {
           )}
         </div>
 
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+        <div className="flex-grow bg-black w-full px-4 py-8">
+          <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
             {!connectedToSnap ? (
               <NillionOnboarding />
             ) : (
               <div>
-                {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
-                  <h1 className="text-xl">Step 1: Store a Nada program</h1>
-                  {programId ? (
-                    <div>
-                      ✅ {programName} program stored <br />
-                      <span className="flex">
-                        <CopyString str={programId} start={5} end={programName.length + 5} textBefore="program_id: " />
-                      </span>
-                    </div>
-                  ) : (
-                    <div>No Program Stored</div>
-                  )}
-
+                <div className="flex flex-col bg-black px-10 py-10 text-center items-center max-w-m rounded-3xl my-2">
+                  <h1 className="text-xl">Nada program</h1>
                   <CodeSnippet program_name={programName} />
-                </div> */}
+                </div>
 
-                {/* <button className="btn btn-primary mt-4" onClick={() => handleRetrieveSecrets()}>
-                  🎮 Retrieve secret
-                </button>
-                <button className="btn btn-primary mt-4" onClick={() => handleCompute()}>
-                  🧮 Compute
-                </button> */}
                 <GameUI
                   gameIsLoading={gameIsLoading}
                   setGameIsLoading={setGameIsLoading}
@@ -331,45 +291,11 @@ const Hangman: NextPage = () => {
                   handleGameStart={handleGameStart}
                   gameScore={gameScore}
                 />
-                <div className="h-[25vh]"></div>
+                <div className="h-[30vh]"></div>
               </div>
             )}
           </div>
         </div>
-
-        {/* <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-full rounded-3xl my-2 justify-between">
-          <h1 className="text-xl">Step 2: Store secret integers with program bindings to the {programName} program</h1>
-
-          <div className="flex flex-row w-full justify-between items-center my-10 mx-10">
-            {Object.keys(storedSecretsNameToStoreId).map(key => (
-              <div className="flex-1 px-2" key={key}>
-                {!!storedSecretsNameToStoreId[key] && userKey ? (
-                  <>
-                    <RetrieveSecretCommand
-                      secretType="SecretInteger"
-                      userKey={userKey}
-                      storeId={storedSecretsNameToStoreId[key]}
-                      secretName={key}
-                    />
-                    <button
-                      className="btn btn-sm btn-primary mt-4"
-                      onClick={() => handleRetrieveInt(key, storedSecretsNameToStoreId[key])}
-                    >
-                      👀 Retrieve SecretInteger
-                    </button>
-                  </>
-                ) : (
-                  <SecretForm
-                    secretName={key}
-                    onSubmit={handleSecretFormSubmit}
-                    isDisabled={!programId}
-                    secretType="number"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
     </>
   );

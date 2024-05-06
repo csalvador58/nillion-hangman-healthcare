@@ -12,8 +12,6 @@ export interface GameConfig {
   secrets: StringObject[];
 }
 
-// const PROGRAM_PARTY_NAME = "program";
-// const PLAYER_1_PARTY_NAME = "player1";
 const PERMISSIONED_USERID = {
   retrieve: "",
   update: "",
@@ -40,7 +38,6 @@ export async function initGameAndSecrets(
 
   try {
     // Setup nillion client
-    // const { nillion, nillionClient } = await getNillionClientLibrary(userKey);
     const programUserId = nillionClient.user_id;
     console.log("programUserId: ", programUserId);
     console.log("gameSecrets: ", gameSecrets);
@@ -48,12 +45,6 @@ export async function initGameAndSecrets(
     // store the program
     const programId = await storeProgram(nillionClient, programName);
     console.log("programId: ", programId);
-
-    // // // set permission for player 1 run compute
-    // PERMISSIONED_USERID.retrieve = userKey;
-    // PERMISSIONED_USERID.update = userKey;
-    // PERMISSIONED_USERID.delete = userKey;
-    // PERMISSIONED_USERID.compute = userKey;
 
     // store game secret integers
     for (const secret of gameSecrets.secretIntegers) {
@@ -99,12 +90,3 @@ export async function initGameAndSecrets(
     throw new Error("Error initializing game");
   }
 }
-
-// const getNillionClientLibrary = async (userKey: string) => {
-//   const nillionClientUtil = await import("~~/utils/nillion/nillionClient");
-//   const programKey = userKey ?? process.env.NEXT_PUBLIC_NILLION_USERKEY_TEXT_PARTY_1;
-//   console.log("programKey: ", programKey);
-//   if (!programKey) throw new Error("Nillion program key not found");
-//   const libraries = await nillionClientUtil.getNillionClient(programKey);
-//   return { nillion: libraries.nillion, nillionClient: libraries.nillionClient };
-// };

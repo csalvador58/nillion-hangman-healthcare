@@ -12,13 +12,13 @@ const imageUrl = `${baseUrl}/thumbnail.jpg`;
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Scaffold-Nillion App",
+    default: "Falling Man App",
     template: "%s | Scaffold-Nillion",
   },
   description: "Built with 🏗 Scaffold-Nillion",
   openGraph: {
     title: {
-      default: "Scaffold-Nillion App",
+      default: "Falling Man App",
       template: "%s | Scaffold-Nillion",
     },
     description: "Built with 🏗 Scaffold-Nillion",
@@ -27,15 +27,6 @@ export const metadata: Metadata = {
         url: imageUrl,
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: [imageUrl],
-    title: {
-      default: "Scaffold-Nillion",
-      template: "%s | Scaffold-Nillion",
-    },
-    description: "Built with 🏗 Scaffold-Nillion",
   },
   icons: {
     icon: [{ url: "/favicon.png", sizes: "32x32", type: "image/png" }],

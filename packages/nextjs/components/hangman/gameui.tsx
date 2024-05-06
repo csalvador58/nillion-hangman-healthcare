@@ -6,7 +6,7 @@ import Scoreboard from "./Scoreboard";
 import SelectCategory from "./SelectCategory";
 import SelectStatements from "./SelectStatements";
 import { getRandomSet, randomFillerStatements, shuffleStatements, splitStatements } from "./utils";
-import { GameScore, StringObject } from "~~/app/nillion-hangman/page";
+import { GameResult, GameScore, StringObject } from "~~/app/nillion-hangman/page";
 
 const GAME_INFO = programData.list as unknown as HealthCareInfo[];
 const GAME_CATEGORIES = [...new Set(GAME_INFO.map(item => item.category))];
@@ -112,32 +112,40 @@ const GameUI = ({
     : "";
 
   return (
-    <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-full rounded-3xl my-2 justify-between relative">
-      <h1 className="sticky top-5 text-xl mx-auto w-fit py-2 px-5 rounded-lg bg-black bg-opacity-70 z-50">
+    <div className="flex flex-col bg-black px-10 py-10 text-center items-center w-full rounded-3xl my-2 justify-between relative">
+      <h1 className="sticky top-5 text-xl mx-auto w-fit py-2 px-5 rounded-lg bg-black bg-opacity-70 z-10">
         Falling Nillion game
       </h1>
-      <div className="grid grid-rows-2 grid-flow-col gap-2">
-        {/* Left side grid - Hangman animation main screen */}
-        <div className="row-start-1 row-end-3 w-[500px] h-full ... bg-slate-500 rounded-lg">
-          <FallingMan gameScore={gameScore}/>
-        </div>
+      <div className="border-[20px] border-black p-[-50px] rounded-lg">
+        <div className="grid grid-rows-2 grid-flow-col gap-4 bg-black">
+          {/* Left side grid - Hangman animation main screen */}
+          <div className="row-start-1 row-end-3 w-[500px] h-[700px] ... bg-slate-500 rounded-lg">
+            <FallingMan gameScore={gameScore} />
+          </div>
 
-        {/* Upper right grid - Directions section */}
-        <div className="row-start-1 row-end-2 col-span-2 w-[500px] ... bg-slate-400 rounded-lg">
-          <Directions />
-        </div>
-        {/* Lower right grid - Select category or Word reveal section */}
-        <div className="row-start-2 row-end-3 col-span-2 w-[500px] ... bg-slate-500 flex justify-center items-center rounded-lg">
-          {!selectedCategory ? (
-            <SelectCategory categories={GAME_CATEGORIES} setTopicAndInitGame={setTopicAndInitGame} />
-          ) : (
-            <Scoreboard
-              gameIsLoading={gameIsLoading}
-              statements={statements}
-              gameScore={gameScore}
-              handleWordGuess={handleWordGuess}
-            />
-          )}
+          {/* Upper right grid - Directions section */}
+          <div className="row-start-1 row-end-2 col-span-2 w-[500px] h-[350px] ... bg-slate-400 rounded-lg">
+            <Directions />
+          </div>
+          {/* Lower right grid - Select category or Word reveal section */}
+          <div className="row-start-2 row-end-3 col-span-2 w-[500px] h-[334px] ... bg-slate-500 flex justify-center items-center rounded-lg">
+            {!selectedCategory && gameScore.gameResult === GameResult.waiting ? (
+              <SelectCategory categories={GAME_CATEGORIES} setTopicAndInitGame={setTopicAndInitGame} />
+            ) : gameScore.gameResult !== GameResult.waiting ? (
+              <Scoreboard
+                gameIsLoading={gameIsLoading}
+                statements={statements}
+                gameScore={gameScore}
+                handleWordGuess={handleWordGuess}
+              />
+            ) : (
+              <div className="flex justify-center items-center gap-2">
+                <span className="loading loading-dots loading-lg"></span>
+                <h2>...Game is Loading...</h2>
+                <span className="loading loading-dots loading-lg"></span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

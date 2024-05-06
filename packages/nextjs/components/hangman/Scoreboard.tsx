@@ -44,7 +44,9 @@ const Scoreboard = ({ gameIsLoading, statements, gameScore, handleWordGuess }: S
           <p>{`Failed attempts: ${gameScore.numFails} / 5`}</p>
           <div>
             {revealedLetters.length > 4 ? (
-              <h3 className="text-red-500">{`Time to guess the secret word!`}</h3>
+              <h3 className="text-error bg-warning p-1 rounded-md">
+                All 5 letters revealed. Time to guess the secret word!
+              </h3>
             ) : (
               <h3>{`${revealedLetters.length} of 5 Letters Revealed`}</h3>
             )}

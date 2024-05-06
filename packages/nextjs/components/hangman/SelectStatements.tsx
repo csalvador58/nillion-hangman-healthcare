@@ -26,9 +26,9 @@ const SelectStatements = ({
             <span className="text-red-700 text-2xl">{gameIsLoading.text || "Loading..."}</span>
           </div>
         ) : (
-          <h2 className="sticky top-0 bg-black py-2 w-screen max-w-screen ml-[calc(50%-50vw)] bg-opacity-90">
+          <h2 className="sticky top-0 bg-base-100 py-2 w-screen max-w-screen ml-[calc(50%-50vw)] bg-opacity-95">
             Healthcare Topic:{" "}
-            <span className="text-blue-600">
+            <span className="text-red-600">
               {selectedCategory}
               {` "${setName}"`}
             </span>
