@@ -86,7 +86,7 @@ const Scoreboard = ({ gameIsLoading, statements, gameScore, handleWordGuess }: S
       {gameScore.gameResult === GameResult.win && (
         <>
           <h2>Game Over</h2>
-          <p>{`You win!`}</p>
+          <p className="text-green-500 text-[50px]">{`You win!`}</p>
           <button className="btn btn-primary" onClick={() => window.location.reload()}>
             Play Again
           </button>
@@ -96,7 +96,7 @@ const Scoreboard = ({ gameIsLoading, statements, gameScore, handleWordGuess }: S
       {gameScore.gameResult === GameResult.lose && (
         <>
           <h2>Game Over</h2>
-          <p>{`You lose!`}</p>
+          <p className="text-red-500 text-[50px]">{`You lose!`}</p>
           <button className="btn btn-primary" onClick={() => window.location.reload()}>
             Play Again
           </button>
